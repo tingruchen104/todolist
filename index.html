@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="簡單好用的待辦清單，支援優先度、截止日提醒、深色模式，資料存於瀏覽器本地。" />
+    <meta name="theme-color" content="#4f46e5" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#6366f1" media="(prefers-color-scheme: dark)" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Todo List" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Todo List" />
+    <meta property="og:description" content="簡單好用的待辦清單，支援優先度、截止日提醒、深色模式。" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>Todo List</title>
+    <!-- prevent dark-mode FOUC: apply class synchronously before first paint -->
+    <script>
+      (function () {
+        var stored = localStorage.getItem('todolist_dark_mode')
+        var dark = stored === null
+          ? window.matchMedia('(prefers-color-scheme: dark)').matches
+          : stored === 'true'
+        if (dark) document.documentElement.classList.add('dark')
+      })()
+    </script>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
