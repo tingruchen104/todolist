@@ -59,14 +59,15 @@ git rev-parse --is-inside-work-tree 2>/dev/null   # true = repo，否則純資�
 
 **repo**：
 
+一次取得所有狀態，減少往返：
+
 ```bash
-git fetch
-git ls-remote --heads origin prototype/base   # 無輸出 = 尚未初始化
-git status --short
-git status -sb
-git branch --show-current
-git rev-parse --abbrev-ref --symbolic-full-name @{u}
-git log --oneline @{u}..HEAD
+git fetch && {
+  echo "== base ==";     git ls-remote --heads origin prototype/base   # 無輸出 = 尚未初始化
+  echo "== changes ==";  git status --short
+  echo "== branch ==";   git status -sb                                # 含目前分支、上游與領先落後
+  echo "== unpushed =="; git log --oneline @{u}..HEAD 2>/dev/null
+}
 ```
 
 遠端沒有 `prototype/base` 時**停止**，回報：這個資料夾還沒準備好工作環境，請先執行 `/prototype-init`。
@@ -208,6 +209,10 @@ Claude 先逐一開啟每頁 `http://localhost:<port>/templates/prototypes/index
 - **視覺品質**：間距、對齊、視覺層級得當；善用 primary 色階營造層次，避免整面白底加灰框（見設計規範「設計基調」）。
 - **lint**：通過專案 lint，無錯誤與警告。
 
+**驗證深度分級**：上述完整驗證只做在本次新寫或有改動的頁面。頁面內容與先前已驗證交付的版本完全相同（例如只是同步基座、本次未動該頁）時，改做輕量檢查即可：頁面載入成功、console 無錯誤、截圖目視整體版面。
+
+**減少瀏覽器往返**：互動測試以連續操作進行，只在需要斷言結果的節點取 snapshot，不每個動作都截取；截圖與暫存檔一律存到系統暫存目錄（scratchpad），不落在工作目錄或來源專案內。
+
 確認完畢後，開啟列表頁 `http://localhost:<port>/templates/prototypes/index.html#/`（PrototypeIndex）給使用者，回報：
 
 ```text
@@ -228,7 +233,15 @@ fi
 git push -u origin prototype/<work-name>
 ```
 
-**合回基座**：讓之後從 `prototype/base` 開出的新分支直接帶著已交付的頁面。基座更新時不保留這些頁面（一律對齊最新來源），舊內容於封存分支可查：
+**合回基座**：讓之後從 `prototype/base` 開出的新分支直接帶著已交付的頁面。基座更新時不保留這些頁面（一律對齊最新來源），舊內容於封存分支可查。
+
+工作分支從基座開出，多數情況基座沒有新交付、可直接 fast-forward，一行推送完成、不切分支：
+
+```bash
+git push origin prototype/<work-name>:prototype/base
+```
+
+被拒絕（非 fast-forward，代表基座已有其他交付）時才退回合併流程：
 
 ```bash
 git checkout prototype/base
@@ -271,24 +284,24 @@ BRANCH_URL=$(echo "$REMOTE_URL" | sed -E 's#^git@([^:]+):#https://\1/#; s#\.git$
 
 **純資料夾**：直接讀寫檔案，不牽涉 git。
 
-**repo**：清單只放主線、不進工作分支。切到主線寫入後切回：
+**repo**：清單只放主線、不進工作分支。用臨時 worktree 操作主線，目前分支與工作樹完全不動（不必來回切分支重建檔案，也不會讓預覽伺服器因檔案抽換而重新編譯）：
 
 ```bash
-CUR_BRANCH=$(git branch --show-current)
 MAIN=$(git remote show origin | sed -n 's/.*HEAD branch: //p')
+WT=$(mktemp -d)
+git worktree add --detach "$WT" "origin/$MAIN"
 
 for i in $(seq 1 5); do
-  git fetch origin "$MAIN"
-  git checkout "$MAIN"
-  git reset --hard "origin/$MAIN"   # 每次以主線最新內容重新開始
-  # 讀取此刻 prototypes/prototype-log.md 最新內容，依上方規則寫入這次的列
-  git add prototypes/prototype-log.md
-  git commit -m "prototype: 記錄 <page-name>"
-  git push origin "$MAIN" && break
+  git -C "$WT" fetch origin "$MAIN"
+  git -C "$WT" reset --hard "origin/$MAIN"   # 每次以主線最新內容重新開始
+  # 讀取此刻 $WT/prototypes/prototype-log.md 最新內容，依上方規則寫入這次的列
+  git -C "$WT" add prototypes/prototype-log.md
+  git -C "$WT" commit -m "prototype: 記錄 <page-name>"
+  git -C "$WT" push origin HEAD:"$MAIN" && break
   # push 失敗 = 有其他人先寫入，回圈重新 fetch 再寫一次
 done
 
-git checkout "$CUR_BRANCH"
+git worktree remove --force "$WT"
 ```
 
 5 次重試仍失敗、或檔案讀寫失敗時，平實告知「這次沒能存到紀錄，可以稍後再試一次」，不中斷主流程（畫面已在第 5.5 步交付）、不貼原始錯誤。
