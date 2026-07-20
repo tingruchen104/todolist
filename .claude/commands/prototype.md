@@ -2,7 +2,7 @@
 
 依本專案 UI 設計準則，產出一個或多個可在本機預覽的 prototype 畫面。使用者不熟悉程式與版本控管，Claude 負責環境確認、檔案產出與本機預覽。
 
-> **執行位置**：本指令已隨基座搬入工作目錄（由 `/prototype-init` 初始化，含工具鏈與基座分支 `prototype/base`），就地執行，文件內路徑皆相對於此。改既有頁、或畫面需引用產品檔時，需另掛**來源** 104-f2e-tag-service（唯讀）；從零的新畫面不需要。
+> **執行位置**：本指令已隨 `prototype/base` 分支搬入工作目錄（由 `/prototype-init` 初始化，含工具鏈），就地執行，文件內路徑皆相對於此。改既有頁、或畫面需引用產品檔時，需另掛**來源** 104-f2e-tag-service（唯讀）；從零的新畫面不需要。
 >
 > **前置需求**：第 4 步參考外部頁、第 5 步預覽與樣式確認需 Claude 的 Chrome 擴充（`claude-in-chrome`）；每位使用者各自安裝、無法由 `.mcp.json` 共享，請先在本機安裝並登入。
 
@@ -82,7 +82,7 @@ git fetch && {
 3. 不保留、重新開始：放棄目前內容，從最新專案內容重新開始。
 ```
 
-- 選 1：留在目前分支沿用現狀，跳過「建立工作分支」，但先做「同步基座」再繼續。
+- 選 1：留在目前分支沿用現狀，跳過「建立工作分支」，但先做「同步 `prototype/base`」再繼續。
 - 選 2：比照第 5.5 步 commit／push 並回報交付連結，再建立工作分支。
 - 選 3：先向使用者確認下句，確認後執行 `git checkout -- . && git clean -fd`，再建立工作分支。
 
@@ -90,15 +90,15 @@ git fetch && {
   這會放棄目前尚未整理完的內容，而且無法復原。請確認是否要重新開始。
   ```
 
-**建立工作分支**（選 1 以外都要做）：基座是已驗證、已 commit 的可執行環境，開出的分支直接能跑，不需重新搬移或安裝：
+**建立工作分支**（選 1 以外都要做）：`prototype/base` 是已驗證、已 commit 的可執行環境，開出的分支直接能跑，不需重新搬移或安裝：
 
 ```bash
 git checkout -b prototype/<work-name> origin/prototype/base
 ```
 
-同名分支已存在改用 `git checkout prototype/<work-name>`，並接著做「同步基座」；既有內容與本次需求明顯不同時，先詢問要沿用或改名。
+同名分支已存在改用 `git checkout prototype/<work-name>`，並接著做「同步 `prototype/base`」；既有內容與本次需求明顯不同時，先詢問要沿用或改名。
 
-**同步基座**（選 1 接續、或沿用同名既有分支時做；新開分支不需要）：基座會隨每次交付累積頁面，先把最新基座合併進來，本機預覽才帶得到其他已交付的頁面，衝突也能在動工前浮現。用合併、不用 rebase——工作分支已推送為交付連結，rebase 需強制覆蓋遠端，風險較高：
+**同步 `prototype/base`**（選 1 接續、或沿用同名既有分支時做；新開分支不需要）：`prototype/base` 會隨每次交付累積頁面，先把最新 `prototype/base` 合併進來，本機預覽才帶得到其他已交付的頁面，衝突也能在動工前浮現。用合併、不用 rebase——工作分支已推送為交付連結，rebase 需強制覆蓋遠端，風險較高：
 
 ```bash
 git fetch
@@ -107,7 +107,7 @@ git merge --no-edit origin/prototype/base
 
 有衝突時 `git merge --abort` 恢復原狀，平實告知使用者這次的內容與其他已交付畫面改到同一處，詢問要先保存現狀再處理、或暫時不同步繼續做。
 
-**基座過期提示（有掛來源時順帶做，未掛則跳過）**：
+**`prototype/base` 過期提示（有掛來源時順帶做，未掛則跳過）**：
 
 ```bash
 git show origin/prototype/base:.prototype-base-source
@@ -191,7 +191,7 @@ node .claude/commands/scripts/prototype-resolve-deps.mjs \
 
 解析器只跟靜態的 `@/`／`~/`／相對 import；`import.meta.glob` 與動態字串 import 跟不到。會印出新增檔案與無法解析的 import；遇到未解析項或預覽「找不到模組」時，確認 import 路徑、必要時回報工程，不自行臆造檔案。
 
-本步需掛來源。從零新畫面（B）且未引用產品檔時可跳過（共用元件已在基座內）；之後預覽若「找不到模組」，請使用者連結來源後補跑本步。
+本步需掛來源。從零新畫面（B）且未引用產品檔時可跳過（共用元件已在 `prototype/base` 內）；之後預覽若「找不到模組」，請使用者連結來源後補跑本步。
 
 ### 第 5 步 — 開啟預覽
 
@@ -209,9 +209,9 @@ Claude 先逐一開啟每頁 `http://localhost:<port>/templates/prototypes/index
 - **視覺品質**：間距、對齊、視覺層級得當；善用 primary 色階營造層次，避免整面白底加灰框（見設計規範「設計基調」）。
 - **lint**：通過專案 lint，無錯誤與警告。
 
-**設計規範審查（subagent）**：頁面能正常載入後，對本次新寫或有改動的頁面啟動 `prototype-design-reviewer`（定義於 `.claude/agents/`，隨基座交付），傳入頁面資料夾路徑、本次需求摘要與各頁分流（A／B）。它以乾淨的上下文完整讀取 `docs/design-system.md`、`docs/components-purpose.json` 與本文件第 4 步的產出規範，靜態逐條審查產出碼（含設計規範與 prototype 規範兩者），與上列瀏覽器檢查**並行**執行以節省時間。回報的違規逐項確認後修正、重新整理預覽；規範明列的例外可說明後略過，「待確認」項自行查證規範原文再定。
+**設計規範審查（subagent）**：頁面能正常載入後，對本次新寫或有改動的頁面啟動 `prototype-design-reviewer`（定義於 `.claude/agents/`，隨 `prototype/base` 交付），傳入頁面資料夾路徑、本次需求摘要與各頁分流（A／B）。它以乾淨的上下文完整讀取 `docs/design-system.md`、`docs/components-purpose.json` 與本文件第 4 步的產出規範，靜態逐條審查產出碼（含設計規範與 prototype 規範兩者），與上列瀏覽器檢查**並行**執行以節省時間。回報的違規逐項確認後修正、重新整理預覽；規範明列的例外可說明後略過，「待確認」項自行查證規範原文再定。
 
-**驗證深度分級**：上述完整驗證只做在本次新寫或有改動的頁面。頁面內容與先前已驗證交付的版本完全相同（例如只是同步基座、本次未動該頁）時，改做輕量檢查即可：頁面載入成功、console 無錯誤、截圖目視整體版面。
+**驗證深度分級**：上述完整驗證只做在本次新寫或有改動的頁面。頁面內容與先前已驗證交付的版本完全相同（例如只是同步 `prototype/base`、本次未動該頁）時，改做輕量檢查即可：頁面載入成功、console 無錯誤、截圖目視整體版面。
 
 **減少瀏覽器往返**：互動測試以連續操作進行，只在需要斷言結果的節點取 snapshot，不每個動作都截取；截圖與暫存檔一律存到系統暫存目錄（scratchpad），不落在工作目錄或來源專案內。
 
@@ -235,15 +235,15 @@ fi
 git push -u origin prototype/<work-name>
 ```
 
-**合回基座**：讓之後從 `prototype/base` 開出的新分支直接帶著已交付的頁面。基座更新時不保留這些頁面（一律對齊最新來源），舊內容於封存分支可查。
+**合回 `prototype/base`**：讓之後從 `prototype/base` 開出的新分支直接帶著已交付的頁面。`prototype/base` 更新時不保留這些頁面（一律對齊最新來源），舊內容於封存分支可查。
 
-工作分支從基座開出，多數情況基座沒有新交付、可直接 fast-forward，一行推送完成、不切分支：
+工作分支從 `prototype/base` 開出，多數情況 `prototype/base` 沒有新交付、可直接 fast-forward，一行推送完成、不切分支：
 
 ```bash
 git push origin prototype/<work-name>:prototype/base
 ```
 
-被拒絕（非 fast-forward，代表基座已有其他交付）時才退回合併流程：
+被拒絕（非 fast-forward，代表 `prototype/base` 已有其他交付）時才退回合併流程：
 
 ```bash
 git checkout prototype/base
@@ -253,7 +253,7 @@ git push origin prototype/base
 git checkout prototype/<work-name>
 ```
 
-各頁自有資料夾、重疊的產品檔內容通常相同，極少衝突；真有衝突時 `git merge --abort` 中止合併，照常交付工作分支連結，並平實回報使用者這次的畫面暫時沒併入共同基座、之後的新畫面不會自動帶到它。
+各頁自有資料夾、重疊的產品檔內容通常相同，極少衝突；真有衝突時 `git merge --abort` 中止合併，照常交付工作分支連結，並平實回報使用者這次的畫面暫時沒併入共同的畫面環境、之後的新畫面不會自動帶到它。
 
 組出交付連結（GitHub 慣例路徑；其他平台需調整）：
 
