@@ -5,7 +5,7 @@
 // 從給定的進入點檔案做逐引用遞迴，把來源 repo 內「被實際引用到」的 src 檔
 // 複製進目的地，達成「用到才搬」：
 //   - /prototype-init：進入點為目的地的 prototypes/index.js（＋ system 畫面），
-//     seed 出跑得起框架的最小基座。
+//     seed 出跑得起框架的最小檔案集。
 //   - /prototype 改既有頁：進入點為剛產出的 prototypes/views/<page>/*.vue，
 //     把 TagForm 等產品依賴按需拉進目的地。
 //
