@@ -135,7 +135,7 @@ git -C <來源> fetch && git -C <來源> rev-parse origin/lab
 
 **共通**
 
-- 產出只寫 `prototypes/views/<page-name>/*.vue`（`index.vue` 必須存在）；引用的產品檔由 4.5 解析器搬，不手動。
+- 產出只寫 `prototypes/views/<page-name>/`：`index.vue`（必須）、拆出的 `.vue` 子元件、`spec.md`（必須，見「頁面規格」）；引用的產品檔由 4.5 解析器搬，不手動。
 - 拆小元件放本頁資料夾、相對路徑引用，不進 `src/`。
 
 **A 改既有頁**
@@ -168,6 +168,36 @@ const viewState = ref(inject('prototypeInitialState', 'normal'));
 ```
 
 未宣告 `states` 用 PrototypeIndex 預設；空陣列不列連結。
+
+**頁面規格 `spec.md`**（每頁必產；初次產出即寫，後續調整同步更新）：供 `/prototype-figma` 精準轉出，不必回頭從 `.vue` 推導。格式：
+
+```markdown
+# <page-name> — <中文畫面名稱>
+
+- 需求：<一句摘要>
+- 分流：A（改自 <來源檔路徑>）｜B 從零
+- 狀態：normal（預設）、<state>（#/<page-name>?state=<state>）…
+
+## 版面結構
+
+<由外而內的區塊樹，每個區塊標容器 class 與內含元件>
+
+## 元件清單
+
+| 元件 | 來源 | 用途與 variant |
+| --- | --- | --- |
+| <名稱> | 共用（src/…）｜antd 原生｜本頁自訂 | <用途、variant、size 等> |
+
+## 互動流程
+
+| 操作 | 結果畫面 | 建議 frame |
+| --- | --- | --- |
+| <觸發> | <畫面變化，含 modal、notification 等瞬時 UI> | <page-name> — <名稱>｜— |
+
+## 顯示文字
+
+<畫面實際顯示的關鍵字面與假資料>
+```
 
 ### 第 4.5 步 — 搬入頁面依賴（需掛來源）
 
@@ -292,6 +322,6 @@ git worktree remove --force "$WT"
 
 ### 後續調整
 
-同一段對話的後續描述＝調整已確認頁面；指定某頁只改該頁。仍遵守規範與第 4 步；新增 import 重跑 4.5，再重新整理預覽。使用者確認完成 → 重做 5.5 並回報最新連結。
+同一段對話的後續描述＝調整已確認頁面；指定某頁只改該頁。仍遵守規範與第 4 步；改動頁面同步更新該頁 `spec.md`；新增 import 重跑 4.5，再重新整理預覽。使用者確認完成 → 重做 5.5 並回報最新連結。
 
 `.vue` 已足以交付即完成；要探索版面、或讓非工程的人在 Figma 上討論，才用 `/prototype-figma` 轉出。

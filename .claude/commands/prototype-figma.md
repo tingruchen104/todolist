@@ -36,7 +36,7 @@
 流程：
 
 1. 啟動預覽服務：執行 `bash .claude/commands/scripts/start-prototype-server.sh`（已在跑會沿用既有網址），開啟 `http://localhost:<port>/templates/prototypes/index.html#/<page-name>`
-2. 讀取 `prototypes/views/<page-name>/index.vue`，盤點所有可觸發不同畫面的 UI 操作（下拉展開、新增 modal、切換 tab 等）。
+2. 讀取 `prototypes/views/<page-name>/spec.md`（版面結構、元件清單、互動流程與建議 frame 即為產出依據），並對照 `index.vue` 確認；spec 缺漏或與 `.vue` 不符時，以 `.vue` 為準並回填 spec。無 spec 的舊頁面則讀 `.vue` 盤點所有可觸發不同畫面的 UI 操作（下拉展開、新增 modal、切換 tab 等），並補寫 spec。
 3. **量測 computed styles（產 frame 前必做，不得省略）**：對每個關鍵元件（尤其 ant-design-vue 元件：table、button、input、tag、modal…），用 claude-in-chrome 的 `javascript_tool` 讀 `getComputedStyle` 的實際渲染值，至少取 `background-color`、`color`、`font-family`、`font-weight`、`font-size`、`line-height`、`border`、`padding`，以及外層容器背景（如 `.ant-table` 白底掛在容器）與排版對齊（`display`、`justify-content`）。這些值直接提供給 `use_figma`，不得憑元件預設值或原始碼推測——ant-design-vue v4 樣式為 runtime 注入，只有 computed style 拿得到。
 4. **對應 token／建 Figma Variables**：把量到的值對應回 `docs/design-system.md` 指向的來源（`theme.js` token、CSS Variables），能對應具名 token 者在 Figma 建立 Variable 並綁定，無法對應者用量測值；兩者衝突時以量測值為準。
 5. 先產預設畫面 frame（命名 `<page-name> — 預設`），再依序執行每個 UI 操作、各產一個 frame（依操作命名，如 `<page-name> — 新增 modal`），一律套用量測值與 token 綁定。

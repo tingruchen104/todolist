@@ -42,7 +42,8 @@ tools: Read, Grep, Glob
 
 **Prototype 產出規範（依 prototype.md 第 4 步）**
 
-- 檔案落點：產出只在 `prototypes/views/<page-name>/` 內且 `index.vue` 存在；拆出的小元件在本頁資料夾內以相對路徑引用，沒有把新元件寫進 `src/`（該處為正式共用元件庫）。
+- 檔案落點：產出只在 `prototypes/views/<page-name>/` 內，`index.vue` 與 `spec.md` 皆存在；拆出的小元件在本頁資料夾內以相對路徑引用，沒有把新元件寫進 `src/`（該處為正式共用元件庫）。
+- `spec.md` 與 `.vue` 實作一致：元件清單、狀態、互動流程沒有漏記或過時。
 - B 從零新畫面：不串真實 API、不引用正式 store、不使用正式 router；假資料與邏輯寫在本頁資料夾內。
 - A 改既有頁：只做需求要求與 prototype 環境必要的最小調整，import 維持 `@/…` 原樣；不得夾帶原頁沒有的改動。
 - 不得自行新增需求或原頁沒有的功能、切換器或樣式；表單於初次產出即包含驗證規則（既有 `RULES`）。
