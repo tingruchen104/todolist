@@ -1,0 +1,85 @@
+{
+  "sharedComponents": [
+    {
+      "name": "ConfigProvider",
+      "path": "src/components/shared/ConfigProvider.vue",
+      "useWhen": "頁面根節點需要套用專案 AntDV theme、zh-TW locale 與全域空狀態文案時（App.vue 已掛一份）。",
+      "insteadOf": "a-config-provider",
+      "avoidWhen": "一般畫面內不要再包一層 provider。"
+    },
+    {
+      "name": "Header",
+      "path": "src/components/shared/header/Header.vue",
+      "useWhen": "tag-service 頁面頂部需要一致頁首與登出入口時。",
+      "avoidWhen": "不要自刻頁首列或自行擺放登出按鈕；非 tag-service 頁首或不含登出流程時不要復用。"
+    },
+    {
+      "name": "LoadingOverlay",
+      "path": "src/components/shared/loading/LoadingOverlay.vue",
+      "useWhen": "需要整頁／全域載入遮罩時，搭配 loading store（useLoadingStore）使用。",
+      "avoidWhen": "不要自製全頁 spinner；僅單一區塊的局部載入才用 a-spin。"
+    },
+    {
+      "name": "SectionTitle",
+      "path": "src/components/shared/title/SectionTitle.vue",
+      "useWhen": "頁面或區塊標題一律用它（內含 page-header 樣式的 h2，並提供 subTitle／tags／extra／content／footer slot）。",
+      "insteadOf": "h2（a-typography-title level 2）",
+      "avoidWhen": "非標題的一般文字不要套用。"
+    },
+    {
+      "name": "ErrorMessage",
+      "path": "src/components/shared/form/ErrorMessage.vue",
+      "useWhen": "需要在 a-form-item 之外顯示區塊層級的錯誤訊息（帶淡入動畫的紅字）時。",
+      "avoidWhen": "欄位級錯誤交給 a-form-item 的 rules／explain 顯示，不要自寫紅字文字當錯誤訊息。"
+    },
+    {
+      "name": "FallowTooltip",
+      "path": "src/components/shared/tooltip/FallowTooltip.vue",
+      "useWhen": "App 根節點掛載一次，提供全域 hover 文字提示；需要提示的元素只要掛 title 屬性即生效。",
+      "insteadOf": "a-tooltip",
+      "avoidWhen": "不要重複掛第二個 FallowTooltip；提示一律靠元素的 title 屬性。"
+    },
+    {
+      "name": "Select",
+      "path": "src/components/shared/select/Select.vue",
+      "useWhen": "一般單選／多選、可搜尋、資料量偏大的下拉。",
+      "insteadOf": "a-select",
+      "avoidWhen": "可新增選項用 CreatableSelect；階層選擇用 SearchableCascader。"
+    },
+    {
+      "name": "CreatableSelect",
+      "path": "src/components/shared/select/CreatableSelect.vue",
+      "useWhen": "下拉需讓使用者輸入並新增不存在的 option（回寫 options）時。",
+      "insteadOf": "a-select",
+      "avoidWhen": "固定選項用 Select；階層選擇用 SearchableCascader。"
+    },
+    {
+      "name": "SearchableCascader",
+      "path": "src/components/shared/cascader/SearchableCascader.vue",
+      "useWhen": "階層式 category／field 選擇，且要符合專案下拉樣式與搜尋時。",
+      "insteadOf": "a-cascader",
+      "avoidWhen": "非階層選擇用 Select 或 CreatableSelect。"
+    },
+    {
+      "name": "InputRangeNumber",
+      "path": "src/components/shared/input/InputRangeNumber.vue",
+      "useWhen": "輸入數值區間（起～迄）時。",
+      "insteadOf": "a-input-number（兩個自組區間）",
+      "avoidWhen": "單一數字用 a-input-number。"
+    },
+    {
+      "name": "UploadButton",
+      "path": "src/components/shared/upload/UploadButton.vue",
+      "useWhen": "單檔或少量檔案上傳，需同步 fileList／fileNames 或下載既有檔案時。",
+      "insteadOf": "a-upload",
+      "avoidWhen": "僅完全客製且既有 fileList／fileNames 同步不適用時，才自組 a-upload。"
+    }
+  ],
+  "antDesignVueReference": {
+    "package": "ant-design-vue",
+    "version": "4.2.6",
+    "source": "node_modules/ant-design-vue/es/components.js",
+    "officialDocs": "https://antdv.com/components/overview",
+    "rule": "sharedComponents 無合適元件時，才查 Ant Design Vue 原生元件。"
+  }
+}

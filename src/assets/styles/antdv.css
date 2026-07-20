@@ -1,0 +1,858 @@
+/* =========================================================
+   Base
+========================================================= */
+.ant-input-number,
+.ant-input-affix-wrapper,
+.ant-picker,
+.ant-select-selector,
+.ant-checkbox-inner,
+.ant-radio-inner,
+.ant-btn:not(.ant-btn-text):not(.ant-btn-link):not(.ant-btn-icon) {
+  @apply shadow;
+}
+
+/* =========================================================
+   Button
+========================================================= */
+.ant-btn {
+  @apply inline-flex items-center justify-center gap-1.5 !font-semibold;
+
+  .ant-wave.wave-motion-appear-active {
+    &:not([variant]):not(:disabled),
+    &[variant='primary']:not(:disabled) {
+      box-shadow: 0 0 0 6px var(--color-primary);
+    }
+
+    &[variant='success']:not(:disabled) {
+      box-shadow: 0 0 0 6px var(--color-success);
+    }
+
+    &[variant='error']:not(:disabled),
+    &.ant-btn-dangerous:not(:disabled) {
+      box-shadow: 0 0 0 6px var(--color-error);
+    }
+
+    &[variant='warning']:not(:disabled) {
+      box-shadow: 0 0 0 6px var(--color-warning);
+    }
+
+    &[variant='info']:not(:disabled) {
+      box-shadow: 0 0 0 6px var(--color-info);
+    }
+  }
+
+  /* ---- Primary ---- */
+  &.ant-btn-primary {
+    @apply border-none text-white;
+
+    &:not([variant]):not(:disabled),
+    &[variant='primary']:not(:disabled) {
+      @apply bg-primary hover:bg-primary-50 active:bg-primary-70;
+    }
+
+    &[variant='success']:not(:disabled) {
+      @apply bg-success hover:bg-success-50 active:bg-success-70;
+    }
+
+    &[variant='error']:not(:disabled),
+    &.ant-btn-dangerous:not(:disabled) {
+      @apply bg-error hover:bg-error-50 active:bg-error-70;
+    }
+
+    &[variant='warning']:not(:disabled) {
+      @apply bg-warning hover:bg-warning-50 active:bg-warning-70;
+    }
+
+    &[variant='info']:not(:disabled) {
+      @apply bg-info hover:bg-info-50 active:bg-info-70;
+    }
+
+    &:disabled {
+      @apply bg-disabled text-disabled border-base border-solid;
+    }
+  }
+
+  /* ---- Default / Dashed ---- */
+  &.ant-btn-default,
+  &.ant-btn-dashed {
+    &:not([variant]):not(:disabled) {
+      @apply text-primary border-primary hover:text-primary-50 hover:border-primary-50 active:text-primary-70 active:border-primary-70 bg-white;
+    }
+    &[variant='primary']:not(:disabled) {
+      @apply text-primary border-primary bg-primary-10 hover:text-primary-50 hover:border-primary-50 active:text-primary-70 active:border-primary-70;
+    }
+
+    &[variant='success']:not(:disabled) {
+      @apply text-success border-success bg-success-10 hover:text-success-50 hover:border-success-50 active:text-success-70 active:border-success-70;
+    }
+
+    &[variant='error']:not(:disabled),
+    &.ant-btn-dangerous:not(:disabled) {
+      @apply text-error border-error bg-error-10 hover:text-error-50 hover:border-error-50 active:text-error-70 active:border-error-70;
+    }
+
+    &[variant='warning']:not(:disabled) {
+      @apply text-warning border-warning bg-warning-10 hover:text-warning-50 hover:border-warning-50 active:text-warning-70 active:border-warning-70;
+    }
+
+    &[variant='info']:not(:disabled) {
+      @apply text-info border-info bg-info-10 hover:text-info-50 hover:border-info-50 active:text-info-70 active:border-info-70;
+    }
+
+    &:disabled {
+      @apply bg-disabled text-disabled border-base border-solid;
+    }
+  }
+
+  /* ---- Text, Link ---- */
+  &.ant-btn-text,
+  &.ant-btn-link {
+    @apply !bg-transparent;
+
+    &:not([variant]):not(:disabled) {
+      @apply text-quaternary hover:text-label active:text-tertiary;
+    }
+
+    &[variant='primary']:not(:disabled) {
+      @apply text-primary hover:text-primary-50 active:text-primary-70;
+    }
+
+    &[variant='success']:not(:disabled) {
+      @apply text-success hover:text-success-50 active:text-success-70;
+    }
+
+    &[variant='error']:not(:disabled),
+    &.ant-btn-dangerous:not(:disabled) {
+      @apply text-error hover:text-error-50 active:text-error-70;
+    }
+
+    &[variant='warning']:not(:disabled) {
+      @apply text-warning hover:text-warning-50 active:text-warning-70;
+    }
+
+    &[variant='info']:not(:disabled) {
+      @apply text-info hover:text-info-50 active:text-info-70;
+    }
+
+    &:disabled {
+      @apply text-disabled;
+    }
+
+    &.ant-btn-background-ghost {
+      @apply !border-transparent;
+    }
+
+    .ant-wave {
+      @apply !shadow-none;
+    }
+  }
+
+  /* ---- Icon ---- */
+  &[is-icon] {
+    @apply size-5 border-0 !bg-transparent p-0 text-base font-bold !shadow-none;
+
+    &.ant-btn-sm {
+      @apply !text-sm;
+    }
+    &.ant-btn-lg {
+      @apply !text-lg;
+    }
+
+    &:not([variant]):not(:disabled) {
+      @apply text-quaternary hover:text-label active:text-tertiary;
+    }
+
+    &[variant='primary']:not(:disabled) {
+      @apply text-primary hover:text-primary-50 active:text-primary-70;
+    }
+
+    &[variant='success']:not(:disabled) {
+      @apply text-success hover:text-success-50 active:text-success-70;
+    }
+
+    &[variant='error']:not(:disabled),
+    &.ant-btn-dangerous:not(:disabled) {
+      @apply text-error hover:text-error-50 active:text-error-70;
+    }
+
+    &[variant='warning']:not(:disabled) {
+      @apply text-warning hover:text-warning-50 active:text-warning-70;
+    }
+    &[variant='info']:not(:disabled) {
+      @apply text-info hover:text-info-50 active:text-info-70;
+    }
+
+    &:disabled {
+      @apply text-disabled;
+    }
+
+    .ant-wave {
+      @apply !shadow-none;
+    }
+  }
+
+  /* ---- Ghost ---- */
+  &.ant-btn-background-ghost {
+    @apply border-white bg-transparent text-white;
+  }
+
+  /* ---- Round ---- */
+  &.ant-btn-round {
+    @apply !px-2 !ps-2 !pe-2;
+  }
+}
+
+/* =========================================================
+   Empty
+========================================================= */
+.ant-empty {
+  @apply my-4;
+
+  .ant-empty-image {
+    @apply h-20;
+  }
+  .ant-empty-description {
+    @apply !text-quaternary;
+  }
+}
+
+.ant-select-item-empty {
+  @apply !p-0;
+}
+
+/* =========================================================
+   Form
+========================================================= */
+.ant-form-item {
+  @apply mb-2;
+
+  .ant-form-item-label {
+    @apply text-start;
+
+    > label {
+      @apply text-label mr-5 min-h-10 text-xl;
+      @apply before:text-error before:absolute before:top-0 before:right-0 before:!m-0 before:translate-x-[125%];
+      @apply after:content-none;
+    }
+  }
+
+  .ant-form-item-explain-error {
+    @apply mt-1 mb-2;
+  }
+
+  .ant-form-item-control-input {
+    @apply min-h-7.5;
+  }
+}
+
+/* =========================================================
+   Select
+========================================================= */
+.ant-select {
+  @apply min-w-16;
+
+  &.ant-select-sm {
+    @apply min-w-12;
+    .ant-select-arrow {
+      inset-inline-end: 0.4375rem;
+    }
+  }
+
+  &.ant-select-show-arrow {
+    .ant-select-selection-item,
+    .ant-select-selection-placeholder {
+      @apply pe-5.5;
+    }
+  }
+
+  .ant-select-selection-search {
+    @apply !min-w-5.5;
+  }
+
+  .ant-select-selection-search-input {
+    @apply !pe-5.5;
+  }
+
+  &.ant-select-multiple {
+    .ant-select-selection-search {
+      @apply !ms-1.75;
+    }
+    .ant-select-selector {
+      @apply py-0.5 !pe-[2.0625rem] after:leading-1.5;
+      .ant-select-selection-search-input,
+      .ant-select-selection-search-mirror,
+      .ant-select-selection-search {
+        @apply h-7.5 !p-0;
+      }
+      .ant-select-selection-item {
+        @apply h-6;
+      }
+    }
+
+    &.ant-select-lg {
+      .ant-select-selector {
+        @apply py-1 after:leading-1.5;
+
+        .ant-select-selection-search-input,
+        .ant-select-selection-search-mirror,
+        .ant-select-selection-search {
+          @apply h-8 !p-0;
+        }
+        .ant-select-selection-item {
+          @apply h-7;
+        }
+      }
+    }
+  }
+
+  .ant-select-arrow {
+    @apply pointer-events-none transition duration-300;
+  }
+
+  &.ant-select-open:not(.ant-select-show-search) {
+    .ant-select-arrow {
+      @apply -rotate-180;
+    }
+  }
+
+  .ant-select-selection-overflow {
+    @apply z-1;
+    .ant-select-selection-overflow-item {
+      .ant-select-selection-item {
+        @apply mr-1 flex items-center justify-start rounded-sm !px-2 text-sm;
+      }
+
+      .ant-select-selection-item-content {
+        @apply me-0;
+      }
+
+      .ant-select-selection-item-remove {
+        @apply ml-1 flex items-center justify-center align-baseline;
+        .anticon {
+          @apply size-3 after:!text-xs;
+        }
+      }
+
+      & + .ant-select-selection-overflow-item > .ant-select-selection-search {
+        @apply !ms-0;
+      }
+
+      &.tag-static {
+        .ant-select-selection-item-remove {
+          @apply !hidden;
+        }
+      }
+    }
+  }
+
+  &:not(.ant-select-disabled) {
+    .ant-select-selection-overflow {
+      @apply z-1;
+      .ant-select-selection-overflow-item {
+        .ant-select-selection-item {
+          @apply text-primary bg-primary-10 border-primary;
+        }
+
+        .ant-select-selection-item-remove {
+          .anticon {
+            @apply !text-primary hover:!text-primary-50 active:!text-primary-70;
+          }
+        }
+      }
+    }
+  }
+
+  .ant-select-selector {
+    @apply flex items-center justify-center border-none;
+  }
+
+  .ant-select-clear {
+    @apply m-0 size-5 -translate-y-1/2;
+  }
+
+  &[variant='primary']:not(.ant-select-disabled) {
+    .ant-select-selector {
+      @apply bg-primary border-primary hover:bg-primary-50 hover:border-primary-50;
+    }
+    .ant-select-selection-item,
+    .anticon {
+      @apply !text-white;
+    }
+
+    .ant-select-clear {
+      @apply bg-primary;
+    }
+
+    &[class*='-focused'] {
+      .ant-select-selector {
+        @apply border-primary-50 bg-primary-50;
+      }
+    }
+  }
+
+  &[variant='secondary']:not(.ant-select-disabled) {
+    .ant-select-selector {
+      @apply bg-primary-10 border-primary hover:bg-primary-10 hover:border-primary-50;
+    }
+    .ant-select-selection-item,
+    .anticon {
+      @apply !text-primary;
+    }
+
+    .ant-select-clear {
+      @apply bg-primary-50;
+    }
+
+    &[class*='-focused'] {
+      .ant-select-selector {
+        @apply border-primary-50 bg-primary-10;
+      }
+    }
+  }
+
+  &[variant='outline'] {
+    .ant-select-selector {
+      @apply !outline-primary-10 hover:!outline-primary-20 !border-transparent shadow !outline-2 -outline-offset-1;
+    }
+
+    &[class*='-focused'] {
+      .ant-select-selector {
+        @apply !outline-primary-20;
+      }
+    }
+
+    &[class*='-disabled'] {
+      .ant-select-selector {
+        @apply !outline-white-70;
+      }
+    }
+
+    &[class*='-status-error']&:not([class*='-disabled']) {
+      .ant-select-selector {
+        @apply !outline-error-40;
+      }
+    }
+  }
+}
+
+.ant-select-dropdown {
+  .ant-select-item {
+    @apply transition-colors duration-300;
+
+    .ant-select-item-option-state {
+      @apply !hidden;
+    }
+  }
+
+  .ant-select-item-option {
+    @apply p-0;
+    .ant-select-item-option-content {
+      @apply px-3 py-1.5;
+    }
+  }
+
+  .ant-checkbox-wrapper {
+    @apply mr-1;
+  }
+
+  .ant-select-item-option-active:not(.ant-select-item-option-disabled) {
+    @apply bg-text-hover text-primary;
+    .ant-checkbox-wrapper {
+      @apply text-primary;
+    }
+  }
+  .ant-select-item-option-selected:not(.ant-select-item-option-disabled) {
+    @apply bg-primary-10 text-primary;
+    .ant-checkbox-wrapper {
+      @apply text-primary;
+    }
+  }
+}
+
+/* =========================================================
+   Textarea
+========================================================= */
+textarea.ant-input {
+  @apply !pr-7.75;
+}
+
+/* =========================================================
+   Input Number
+========================================================= */
+.ant-input-number .ant-input-number-handler-wrap {
+  @apply !hidden;
+}
+
+.ant-input-number-lg .ant-input-number-input {
+  @apply h-10.25 placeholder:text-base;
+}
+
+/* =========================================================
+   Input、date picker - outline
+========================================================= */
+.ant-input,
+.ant-input-number,
+.ant-picker {
+  &[variant='outline'] {
+    @apply !outline-primary-10 hover:!outline-primary-20 !border-transparent shadow !outline-2 -outline-offset-1;
+
+    &.ant-input-focused {
+      @apply !outline-primary-20;
+    }
+
+    &[class*='-disabled'] {
+      @apply !outline-white-70;
+    }
+
+    &[class*='-status-error']&:not([class*='-disabled']) {
+      @apply !outline-error-40;
+    }
+  }
+}
+
+/* =========================================================
+   DatePicker
+========================================================= */
+.ant-picker {
+  &[class*='-disabled'] {
+    @apply !bg-disabled;
+  }
+}
+.ant-picker-dropdown {
+  .ant-picker-cell-in-view {
+    @apply hover:text-primary;
+  }
+  .ant-picker-cell-today {
+    @apply text-primary;
+  }
+  .ant-picker-today-btn {
+    @apply text-primary hover:text-primary-50 active:text-primary-70;
+  }
+  .ant-picker-cell-disabled {
+    @apply text-disabled before:rounded-r-sm first:before:!rounded-l-sm has-[+_.ant-picker-cell-disabled]:before:!rounded-none;
+  }
+}
+
+/* =========================================================
+   Checkbox / Radio
+========================================================= */
+.ant-checkbox-group,
+.ant-radio-group {
+  @apply gap-y-2;
+
+  &[variant='large'] {
+    @apply py-2;
+  }
+}
+
+.ant-checkbox-group {
+  &[variant='large'] {
+    .ant-checkbox-inner,
+    input[type='checkbox'] {
+      @apply size-5;
+    }
+
+    .ant-checkbox-inner {
+      @apply after:start-[20.5%];
+    }
+
+    .ant-checkbox {
+      @apply translate-y-1;
+    }
+  }
+
+  &[variant='small'] {
+    .ant-checkbox-inner,
+    input[type='checkbox'] {
+      @apply size-4;
+    }
+
+    .ant-checkbox-inner {
+      @apply after:start-[16.5%];
+    }
+
+    .ant-checkbox {
+      @apply translate-y-[12.5%];
+    }
+  }
+}
+
+.ant-checkbox-wrapper {
+  @apply !text-base;
+
+  .ant-checkbox-inner {
+    @apply after:start-[19.5%] after:top-[45%] after:h-[70%] after:w-[40%];
+  }
+
+  .ant-checkbox-inner,
+  input[type='checkbox'] {
+    @apply size-4.5;
+  }
+
+  .ant-checkbox {
+    @apply translate-y-0.75;
+  }
+
+  &[variant='large'] {
+    .ant-checkbox-inner,
+    input[type='checkbox'] {
+      @apply size-5;
+    }
+
+    .ant-checkbox-inner {
+      @apply after:start-[20.5%];
+    }
+
+    .ant-checkbox {
+      @apply translate-y-1;
+    }
+  }
+
+  &[variant='small'] {
+    .ant-checkbox-inner,
+    input[type='checkbox'] {
+      @apply size-4;
+    }
+
+    .ant-checkbox-inner {
+      @apply after:start-[16.5%];
+    }
+
+    .ant-checkbox {
+      @apply translate-y-[12.5%];
+    }
+  }
+
+  .ant-checkbox {
+    @apply self-auto;
+    & + span {
+      @apply whitespace-break-spaces;
+    }
+  }
+}
+
+.ant-radio-group {
+  .ant-radio-wrapper {
+    @apply !text-base;
+
+    .ant-radio-inner::after {
+      margin-block-start: 0;
+      margin-inline-start: 0;
+      inset-block-start: 0;
+      inset-inline-start: 0;
+      @apply top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 scale-[110%];
+    }
+
+    .ant-radio {
+      @apply self-auto;
+      & + span {
+        @apply whitespace-break-spaces;
+      }
+    }
+  }
+
+  .ant-radio-inner,
+  input[type='radio'] {
+    @apply size-4.5 after:size-4.5;
+  }
+
+  .ant-radio {
+    @apply translate-y-0.75;
+  }
+
+  &[variant='large'] {
+    .ant-radio-inner,
+    input[type='radio'] {
+      @apply size-5 after:size-5;
+    }
+
+    .ant-radio {
+      @apply translate-y-1;
+    }
+  }
+
+  &[variant='small'] {
+    .ant-radio-inner,
+    input[type='radio'] {
+      @apply size-4 after:size-4;
+    }
+    .ant-radio {
+      @apply translate-y-[12.5%];
+    }
+  }
+}
+
+/* =========================================================
+   Upload
+========================================================= */
+.ant-upload-wrapper {
+  .ant-upload {
+    /* @apply mb-2; */
+  }
+  .ant-upload-list {
+    .ant-upload-list-item-container {
+      @apply first:mt-2;
+    }
+    .ant-upload-list-item {
+      @apply m-0 !h-8 rounded-sm px-2;
+
+      .ant-upload-list-item-action {
+        @apply size-auto p-0;
+      }
+    }
+  }
+}
+
+/* =========================================================
+   Notification
+========================================================= */
+.ant-notification {
+  .ant-notification-notice {
+    @apply pb-3;
+  }
+  .ant-notification-notice-message {
+    @apply text-heading font-bold;
+  }
+  .ant-notification-notice-description {
+    @apply text-label mb-2;
+  }
+  .ant-notification-notice-close,
+  .ant-notification-close-x {
+    @apply size-5;
+  }
+}
+
+/* =========================================================
+   Modal
+========================================================= */
+.ant-modal:not(.ant-modal-confirm) {
+  .ant-modal-header {
+    @apply border-b-primary-30 px-4 pt-4 pb-2;
+  }
+  .ant-modal-title {
+    @apply text-primary;
+  }
+  .ant-modal-body {
+    @apply text-label px-4 pt-4 pb-2;
+  }
+
+  .ant-modal-footer {
+    @apply border-none px-4 pt-2 pb-4;
+  }
+  .ant-modal-close,
+  .ant-modal-close-x {
+    @apply size-5;
+  }
+}
+
+.ant-modal-confirm {
+  .ant-modal-body {
+    @apply p-4;
+  }
+  .ant-modal-confirm-body {
+    .is-104icon {
+      @apply mr-2 mb-0.75 flex-none !text-xl;
+    }
+    .ant-modal-confirm-title {
+      @apply text-heading flex-1;
+    }
+    .ant-modal-confirm-content {
+      @apply text-label !max-w-none;
+    }
+  }
+  .ant-modal-confirm-btns {
+    @apply mt-4;
+  }
+  &.no-confirm-icon {
+    .ant-modal-confirm-body {
+      @apply block;
+      .icon-confirm {
+        @apply !hidden;
+      }
+    }
+  }
+}
+
+/* =========================================================
+   Icon
+========================================================= */
+.anticon:not(.is-104icon) {
+  @apply font-icon hover:!text-label active:!text-tertiary !text-quaternary !inline-flex size-5 items-center justify-center align-baseline text-sm leading-1 font-normal transition duration-150;
+  &.anticon-down {
+    @apply after:content-['\e966'];
+    svg {
+      @apply !hidden;
+    }
+  }
+  &.anticon-right {
+    @apply after:content-['\e917'];
+    svg {
+      @apply !hidden;
+    }
+  }
+  &.anticon-search {
+    @apply after:content-['\e98b'];
+    svg {
+      @apply !hidden;
+    }
+  }
+  &.anticon-calendar {
+    @apply after:content-['\e978'];
+    svg {
+      @apply !hidden;
+    }
+  }
+  &.anticon-close-circle {
+    @apply after:content-['\e968'];
+    svg {
+      @apply !hidden;
+    }
+  }
+  &.anticon-close {
+    @apply text-lg after:content-['\e968'];
+    svg {
+      @apply !hidden;
+    }
+  }
+  &.anticon-paper-clip {
+    @apply after:content-['\e980'];
+    svg {
+      @apply !hidden;
+    }
+  }
+  &.anticon-delete {
+    @apply font-normal after:content-['\e972'];
+    svg {
+      @apply !hidden;
+    }
+  }
+}
+
+.is-104icon {
+  @apply mr-[0.25em] inline-flex size-[1em] items-center justify-center leading-1;
+  &::before {
+    line-height: 1;
+  }
+  &.icon-success {
+    @apply text-success;
+  }
+  &.icon-error {
+    @apply text-error;
+  }
+  &.icon-info {
+    @apply text-info;
+  }
+  &.icon-warning,
+  &.icon-confirm {
+    @apply text-warning;
+  }
+}
+
+/* =========================================================
+   Disabled (全域)
+========================================================= */
+[class*='ant-'][class*='-disabled'] {
+  * {
+    @apply !text-disabled placeholder:!text-disabled;
+  }
+}
