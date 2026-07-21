@@ -4,7 +4,7 @@
 
 > **執行位置**：工作目錄（本指令隨 `prototype/base` 分支交付，由 `/prototype-init` 初始化）。改既有頁或需引用產品檔時，另掛**來源** 104-f2e-tag-service（唯讀）。
 >
-> **前置需求**：第 4 步參考外部頁、第 5 步預覽需 Chrome 擴充（`claude-in-chrome`），每人各自安裝登入。
+> **前置需求（瀏覽器）**：優先 `claude-in-chrome`。第 5 步預覽僅開 localhost，未連線可退 Playwright；第 4 步參考需登入的外部頁只能用 `claude-in-chrome`。該步需要卻兩者皆無（或需登入外部頁而未連線）→ 停止，平實提示安裝並登入 Chrome 擴充（各人各自安裝）後再試。
 
 ## 使用方式
 
@@ -55,7 +55,7 @@
 git rev-parse --is-inside-work-tree 2>/dev/null   # true = repo，否則純資料夾
 ```
 
-**純資料夾**：跳過本步。
+**純資料夾**：確認已初始化（`prototypes/` 與 `package.json` 存在）；未初始化 → **停止**，回報請先執行 `/prototype-init`。已初始化則跳過本步其餘檢查。
 
 **repo** 一次取得所有狀態：
 
@@ -147,7 +147,7 @@ git -C <來源> fetch && git -C <來源> rev-parse origin/lab
 **B 從零**
 
 - 需求、附圖、網址只當設計依據，不抄碼。
-- 參考外部網址：claude-in-chrome 開啟（沿用登入狀態），逐一確認功能與互動（含點選、hover）後重新切版。
+- 參考外部網址：claude-in-chrome 開啟（沿用登入狀態；此步只能用它，未連線則停止並依前置需求提示），逐一確認功能與互動（含點選、hover）後重新切版。
 - 假資料與邏輯寫本頁資料夾；不串 API、不引用 store、不用正式 router。
 
 **狀態呈現**（多狀態才做）：頁面讀注入值渲染，並具名匯出供 PrototypeIndex 列連結：
