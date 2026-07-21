@@ -32,8 +32,8 @@
 
 1. `bash .claude/commands/scripts/start-prototype-server.sh`，開 `#/<page-name>` 預覽。
 2. 讀 `spec.md`（版面結構、元件、互動流程、建議 frame 即產出依據），對照 `index.vue`；不符以 `.vue` 為準並回填 spec；無 spec 的舊頁讀 `.vue` 盤點並補寫 spec。
-3. **量測 computed style（必做，不得省略）**：對每個關鍵元件用 `javascript_tool` 讀 `getComputedStyle`，至少取 `background-color`、`color`、`font-family/weight/size`、`line-height`、`border`、`padding`，含外層容器背景與對齊（`display`、`justify-content`）。antd v4 樣式為 runtime 注入，不得憑預設值或原始碼推測。
-4. **token 對應**：量測值對應回 `theme.js` token／CSS Variables，可對應者建 Figma Variable 綁定；對不上用量測值；衝突以量測值為準。**選同一元件的不同變體（variant/style）時，必須查該變體實際的 stroke／fill／變數綁定（如 `get_variable_defs`）比對量測值，不得只憑截圖或縮圖肉眼判斷。**
+3. **量測 computed style（必做，不得省略）**：對每個關鍵元件用 `javascript_tool` 讀 `getComputedStyle`，至少取 `background-color`、`color`、`font-family/weight/size`、`line-height`、`border`、`padding`，含外層容器背景與對齊（`display`、`justify-content`）；顯示 placeholder 時另量 `::placeholder`，不與元素本身 `color` 混用。antd v4 樣式為 runtime 注入，不得憑預設值或原始碼推測。先查 [`prototype-figma-pitfalls.md`](../reference/prototype-figma-pitfalls.md) 已知陷阱。
+4. **token 對應**：量測值對應回 `theme.js` token／CSS Variables，可對應者建 Figma Variable 綁定；對不上用量測值；衝突以量測值為準。**選同一元件的不同變體（variant/style）時，必須查該變體實際的 stroke／fill／變數綁定（如 `get_variable_defs`）比對量測值，不得只憑截圖或縮圖肉眼判斷。**因臆測造成的轉出錯誤，修正後補一條到 `prototype-figma-pitfalls.md`。
 5. 產 frame：先「`<page-name>` — 預設」，再依 spec 互動流程逐一操作、各產一個 frame（依操作命名）。
 6. **視覺回歸（每個 frame 必做）**：Figma `get_screenshot` ＋瀏覽器同畫面截圖 diff，超門檻回步驟 3 補值重畫。重點：容器白底、文字深淺、對齊、框線。
 7. 依 spec 的 frame 串接關係，用 `use_figma` 接上 prototype 互動連結（觸發元素 → 目標 frame）。
