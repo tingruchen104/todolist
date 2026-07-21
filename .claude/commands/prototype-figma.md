@@ -28,6 +28,8 @@
 
 用準確率最高的方式（`figma-generate-design` skill 或 `use_figma`）；`--url` 寫入既有檔，未給則新建。frame 固定 1920×1080、各畫面獨立、串成可點擊 prototype。精修由工程協作，本指令只負責轉換與保留連結。
 
+轉出範圍＝瀏覽器實際渲染的完整畫面，不限 `index.vue` 內容；`App.vue` 等全域疊加元素（Header、FallowTooltip、LoadingOverlay）看得到就一併轉入 frame。
+
 1. `bash .claude/commands/scripts/start-prototype-server.sh`，開 `#/<page-name>` 預覽。
 2. 讀 `spec.md`（版面結構、元件、互動流程、建議 frame 即產出依據），對照 `index.vue`；不符以 `.vue` 為準並回填 spec；無 spec 的舊頁讀 `.vue` 盤點並補寫 spec。
 3. **量測 computed style（必做，不得省略）**：對每個關鍵元件用 `javascript_tool` 讀 `getComputedStyle`，至少取 `background-color`、`color`、`font-family/weight/size`、`line-height`、`border`、`padding`，含外層容器背景與對齊（`display`、`justify-content`）。antd v4 樣式為 runtime 注入，不得憑預設值或原始碼推測。
