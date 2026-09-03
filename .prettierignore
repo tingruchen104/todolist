@@ -1,0 +1,19 @@
+node_modules/
+dist/
+dist-ssr/
+coverage/
+.vite/
+
+# 本機工具設定
+.claude/settings.local.json
+.vscode/
+
+# 套件管理器產物
+pnpm-lock.yaml
+
+# 設計系統覆寫的 cascade 順序需人工維護
+src/assets/styles/antdv.css
+src/assets/styles/antdv/
+
+# EJS template 由人工維護，避免 HTML parser 重排 include
+templates/**/*.html

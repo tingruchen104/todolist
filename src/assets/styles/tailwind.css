@@ -1,0 +1,204 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import './base.css';
+@import './antdv.css';
+
+@theme {
+  --color-primary: var(--color-primary);
+  --color-primary-10: var(--color-primary-10);
+  --color-primary-20: var(--color-primary-20);
+  --color-primary-30: var(--color-primary-30);
+  --color-primary-40: var(--color-primary-40);
+  --color-primary-50: var(--color-primary-50);
+  --color-primary-60: var(--color-primary-60);
+  --color-primary-70: var(--color-primary-70);
+  --color-primary-80: var(--color-primary-80);
+  --color-primary-90: var(--color-primary-90);
+  --color-primary-100: var(--color-primary-100);
+
+  --color-success: var(--color-success);
+  --color-success-10: var(--color-success-10);
+  --color-success-20: var(--color-success-20);
+  --color-success-30: var(--color-success-30);
+  --color-success-40: var(--color-success-40);
+  --color-success-50: var(--color-success-50);
+  --color-success-60: var(--color-success-60);
+  --color-success-70: var(--color-success-70);
+  --color-success-80: var(--color-success-80);
+  --color-success-90: var(--color-success-90);
+  --color-success-100: var(--color-success-100);
+
+  --color-error: var(--color-error);
+  --color-error-10: var(--color-error-10);
+  --color-error-20: var(--color-error-20);
+  --color-error-30: var(--color-error-30);
+  --color-error-40: var(--color-error-40);
+  --color-error-50: var(--color-error-50);
+  --color-error-60: var(--color-error-60);
+  --color-error-70: var(--color-error-70);
+  --color-error-80: var(--color-error-80);
+  --color-error-90: var(--color-error-90);
+  --color-error-100: var(--color-error-100);
+
+  --color-warning: var(--color-warning);
+  --color-warning-10: var(--color-warning-10);
+  --color-warning-20: var(--color-warning-20);
+  --color-warning-30: var(--color-warning-30);
+  --color-warning-40: var(--color-warning-40);
+  --color-warning-50: var(--color-warning-50);
+  --color-warning-60: var(--color-warning-60);
+  --color-warning-70: var(--color-warning-70);
+  --color-warning-80: var(--color-warning-80);
+  --color-warning-90: var(--color-warning-90);
+  --color-warning-100: var(--color-warning-100);
+
+  --color-info: var(--color-info);
+  --color-info-10: var(--color-info-10);
+  --color-info-20: var(--color-info-20);
+  --color-info-30: var(--color-info-30);
+  --color-info-40: var(--color-info-40);
+  --color-info-50: var(--color-info-50);
+  --color-info-60: var(--color-info-60);
+  --color-info-70: var(--color-info-70);
+  --color-info-80: var(--color-info-80);
+  --color-info-90: var(--color-info-90);
+  --color-info-100: var(--color-info-100);
+
+  --color-cyan: var(--color-cyan);
+  --color-cyan-10: var(--color-cyan-10);
+  --color-cyan-20: var(--color-cyan-20);
+  --color-cyan-30: var(--color-cyan-30);
+  --color-cyan-40: var(--color-cyan-40);
+  --color-cyan-50: var(--color-cyan-50);
+  --color-cyan-60: var(--color-cyan-60);
+  --color-cyan-70: var(--color-cyan-70);
+  --color-cyan-80: var(--color-cyan-80);
+  --color-cyan-90: var(--color-cyan-90);
+  --color-cyan-100: var(--color-cyan-100);
+
+  --color-black-10: var(--color-black-10);
+  --color-black-20: var(--color-black-20);
+  --color-black-30: var(--color-black-30);
+  --color-black-40: var(--color-black-40);
+  --color-black-50: var(--color-black-50);
+  --color-black-60: var(--color-black-60);
+  --color-black-70: var(--color-black-70);
+  --color-black-80: var(--color-black-80);
+  --color-black-90: var(--color-black-90);
+  --color-black-100: var(--color-black-100);
+
+  --color-white-100: var(--color-white-100);
+  --color-white-95: var(--color-white-95);
+  --color-white-90: var(--color-white-90);
+  --color-white-80: var(--color-white-80);
+  --color-white-70: var(--color-white-70);
+  --color-white-60: var(--color-white-60);
+  --color-white-50: var(--color-white-50);
+  --color-white-40: var(--color-white-40);
+  --color-white-30: var(--color-white-30);
+  --color-white-20: var(--color-white-20);
+  --color-white-10: var(--color-white-10);
+
+  --color-opacity: var(--color-opacity);
+  --color-opacity-30: var(--color-opacity-30);
+  --color-opacity-50: var(--color-opacity-50);
+  --color-opacity-70: var(--color-opacity-70);
+
+  --font-sans: var(--font-sans);
+  --font-icon: var(--font-icon);
+
+  --shadow: var(--shadow);
+
+  --blur-2xs: var(--blur-2xs);
+
+  --ease-ant: var(--ease-ant);
+}
+
+/* @layer utilities { */
+
+@utility text-heading {
+  @apply text-black-80;
+}
+@utility text-foreground {
+  @apply text-black-90;
+}
+@utility text-label {
+  @apply text-black-60;
+}
+@utility text-secondary {
+  @apply text-black-50;
+}
+@utility text-tertiary {
+  @apply text-black-40;
+}
+@utility text-quaternary {
+  @apply text-black-30;
+}
+@utility text-placeholder {
+  @apply text-black-20;
+}
+@utility text-disabled {
+  @apply text-black-10;
+}
+
+@utility bg-page {
+  @apply bg-white-90;
+}
+@utility bg-background {
+  @apply bg-white-100;
+}
+@utility bg-text-hover {
+  @apply bg-white-95;
+}
+@utility bg-mask {
+  @apply bg-primary-10;
+}
+@utility bg-spotlight {
+  @apply bg-primary-10;
+}
+@utility bg-disabled {
+  @apply bg-white-80;
+}
+
+@utility border-base {
+  @apply border-white-60;
+}
+@utility border-secondary {
+  @apply border-white-70;
+}
+
+@utility text-link {
+  @apply text-info hover:text-info-50 active:text-info-70 underline underline-offset-2;
+}
+
+@layer base {
+  * {
+    @apply outline-primary-20 relative;
+    scrollbar-width: thin;
+  }
+  html,
+  body {
+    scrollbar-gutter: stable;
+    @apply text-black-100 caret-black-100;
+  }
+  body {
+    @apply bg-page text-foreground font-sans text-base font-normal antialiased;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply text-heading m-0 border-b-0 font-semibold;
+  }
+  p {
+    @apply mb-0;
+  }
+  a {
+    @apply text-link;
+  }
+  .writing-mode-vertical-lr {
+    writing-mode: vertical-lr;
+  }
+}

@@ -1,0 +1,13 @@
+.ant-drawer {
+  .ant-drawer-header {
+    @apply border-base px-6 py-4;
+  }
+
+  .ant-drawer-title {
+    @apply text-heading !text-base font-semibold;
+  }
+
+  .ant-drawer-body {
+    @apply px-6 py-4;
+  }
+}

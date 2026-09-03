@@ -1,0 +1,131 @@
+.ant-checkbox-group {
+  @apply gap-y-2;
+
+  &[variant='large'] {
+    @apply py-2;
+
+    .ant-checkbox-inner {
+      @apply size-5 after:start-[20.5%];
+    }
+
+    input[type='checkbox'] {
+      @apply size-5;
+    }
+
+    .ant-checkbox {
+      @apply translate-y-1;
+    }
+  }
+
+  &[variant='small'] {
+    .ant-checkbox-inner {
+      @apply size-4 after:start-[16.5%];
+    }
+
+    input[type='checkbox'] {
+      @apply size-4;
+    }
+
+    .ant-checkbox {
+      @apply translate-y-[12.5%];
+    }
+  }
+}
+.ant-checkbox-wrapper {
+  @apply !text-base;
+
+  .ant-checkbox:not(.ant-checkbox-indeterminate) .ant-checkbox-inner {
+    @apply after:start-[19.5%] after:top-[45%] after:h-[70%] after:w-[40%];
+  }
+
+  .ant-checkbox-inner,
+  input[type='checkbox'] {
+    @apply size-4.5;
+  }
+
+  .ant-checkbox {
+    @apply translate-y-0.75 self-auto;
+    & + span {
+      @apply whitespace-break-spaces;
+    }
+  }
+
+  &[variant='large'] {
+    .ant-checkbox-inner {
+      @apply size-5 after:start-[20.5%];
+    }
+
+    input[type='checkbox'] {
+      @apply size-5;
+    }
+
+    .ant-checkbox {
+      @apply translate-y-1;
+    }
+  }
+
+  &[variant='small'] {
+    .ant-checkbox-inner {
+      @apply size-4 after:start-[16.5%];
+    }
+
+    input[type='checkbox'] {
+      @apply size-4;
+    }
+
+    .ant-checkbox {
+      @apply translate-y-[12.5%];
+    }
+  }
+}
+
+.ant-radio-group {
+  @apply gap-y-2;
+
+  .ant-radio-wrapper {
+    @apply !text-base;
+
+    .ant-radio-inner::after {
+      @apply top-1/2 left-1/2 ms-0 mt-0 -translate-x-1/2 -translate-y-1/2 scale-[110%];
+    }
+
+    .ant-radio {
+      @apply self-auto;
+      & + span {
+        @apply whitespace-break-spaces;
+      }
+    }
+  }
+
+  .ant-radio-inner,
+  input[type='radio'] {
+    @apply size-4.5 after:size-4.5;
+  }
+
+  .ant-radio {
+    @apply translate-y-0.75;
+  }
+
+  &[variant='large'] {
+    @apply py-2;
+
+    .ant-radio-inner,
+    input[type='radio'] {
+      @apply size-5 after:size-5;
+    }
+
+    .ant-radio {
+      @apply translate-y-1;
+    }
+  }
+
+  &[variant='small'] {
+    .ant-radio-inner,
+    input[type='radio'] {
+      @apply size-4 after:size-4;
+    }
+    .ant-radio {
+      @apply translate-y-[12.5%];
+    }
+  }
+}

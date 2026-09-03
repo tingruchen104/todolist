@@ -1,0 +1,93 @@
+.ant-input,
+.ant-input-affix-wrapper,
+.ant-input-number,
+.ant-picker,
+.ant-mentions {
+  &[variant='outline'] {
+    @apply !outline-primary-10 hover:!outline-primary-20 !border-transparent shadow !outline-2 -outline-offset-1;
+
+    &[class*='-focused'] {
+      @apply !outline-primary-20;
+    }
+
+    &[class*='-disabled'] {
+      @apply !outline-white-70;
+    }
+
+    &[class*='-status-error']:not([class*='-disabled']):not(.is-readonly) {
+      @apply !outline-error-40;
+    }
+  }
+}
+
+.ant-input[variant='outline'][readonly],
+.ant-input-affix-wrapper[variant='outline']:has(input[readonly]),
+.ant-input-affix-wrapper[variant='outline']:has(textarea[readonly]) {
+  @apply !outline-white-70 !bg-white-80 !text-label;
+
+  &:hover,
+  &:focus {
+    @apply !outline-white-70;
+  }
+}
+
+/* Input.Search：variant 落在外層 group-wrapper，outline 套到內層輸入欄位 */
+.ant-input-group-wrapper[variant='outline'] .ant-input-affix-wrapper {
+  @apply !outline-primary-10 hover:!outline-primary-20 !border-transparent shadow !outline-2 -outline-offset-1;
+
+  &[class*='-focused'] {
+    @apply !outline-primary-20;
+  }
+}
+
+.ant-input-group-wrapper[variant='outline']:has(input[readonly]) {
+  .ant-input,
+  .ant-input-affix-wrapper {
+    @apply !outline-white-70 !bg-white-80 !text-label hover:!outline-white-70 focus:!outline-white-70;
+  }
+}
+
+.ant-input-group-wrapper.is-readonly[variant='outline'] {
+  @apply !outline-white-70 !bg-white-80 shadow-none !outline-2 -outline-offset-1;
+
+  .ant-input,
+  .ant-input-affix-wrapper,
+  .ant-input-group-addon {
+    @apply !border-transparent !bg-transparent shadow-none !outline-0;
+  }
+
+  .ant-input-search-button {
+    @apply !border-black-50 !bg-black-50 hover:!border-black-50 hover:!bg-black-50 active:!border-black-50 active:!bg-black-50 !text-white shadow-none !outline-0;
+
+    .anticon,
+    [class^='jb_icon_'],
+    [class*=' jb_icon_'] {
+      @apply !text-white;
+    }
+  }
+}
+
+.is-readonly {
+  @apply cursor-default;
+
+  &.ant-input,
+  &.ant-input-affix-wrapper,
+  .ant-input-affix-wrapper {
+    @apply !bg-white-80 !text-label !outline-white-70 !border-transparent shadow-none !outline-2 -outline-offset-1;
+  }
+
+  .ant-input {
+    @apply !text-label !border-transparent !bg-transparent shadow-none !outline-0 select-text;
+  }
+
+  &.ant-input-group-wrapper {
+    .ant-input-search-button {
+      @apply pointer-events-none cursor-default;
+    }
+  }
+
+  .ant-input-clear-icon,
+  .ant-input-password-icon {
+    @apply !hidden;
+  }
+}

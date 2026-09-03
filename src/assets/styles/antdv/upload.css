@@ -1,0 +1,43 @@
+.ant-upload-wrapper {
+  /* 僅作用於文字清單；picture / picture-card 保留 antd 預設尺寸，避免 !h-8 壓扁方塊項目 */
+  .ant-upload-list-text {
+    .ant-upload-list-item-container {
+      @apply first:mt-2;
+    }
+    .ant-upload-list-item {
+      @apply hover:!bg-opacity m-0 !h-8 rounded-sm px-2 transition-colors duration-300;
+
+      .ant-upload-text-icon .anticon {
+        @apply !text-quaternary;
+      }
+
+      .ant-upload-list-item-name {
+        @apply !text-info hover:!text-info-50 active:!text-info-70;
+      }
+
+      .ant-upload-list-item-actions {
+        @apply !opacity-0 transition-opacity duration-300;
+
+        .ant-upload-list-item-action {
+          @apply !text-quaternary hover:!text-label size-auto p-0;
+        }
+      }
+
+      &:hover .ant-upload-list-item-actions {
+        @apply !opacity-100;
+      }
+    }
+
+    .ant-upload-list-item-error {
+      @apply hover:!bg-error-10;
+
+      .ant-upload-text-icon .anticon {
+        @apply !text-error;
+      }
+
+      .ant-upload-list-item-name {
+        @apply !text-error hover:!text-error;
+      }
+    }
+  }
+}

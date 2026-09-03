@@ -1,0 +1,45 @@
+.ant-transfer {
+  .ant-transfer-list {
+    @apply border-base bg-background rounded;
+  }
+
+  .ant-transfer-list-header {
+    @apply min-h-9 px-3 py-1.5;
+
+    .ant-checkbox-wrapper,
+    .ant-checkbox {
+      @apply inline-flex translate-y-0 items-center;
+    }
+
+    .ant-transfer-list-header-dropdown {
+      @apply !text-tertiary hover:!text-label;
+    }
+  }
+
+  .ant-transfer-list-content-item {
+    @apply hover:!bg-text-hover hover:!text-primary min-h-9 px-3 py-1.5 transition-colors duration-300;
+
+    .ant-checkbox-wrapper,
+    .ant-checkbox {
+      @apply inline-flex translate-y-0 items-center;
+    }
+  }
+
+  .ant-transfer-operation {
+    .ant-btn .anticon {
+      @apply !text-current;
+    }
+
+    .ant-btn:disabled {
+      @apply !bg-disabled !border-base !text-disabled !opacity-100;
+
+      .anticon {
+        @apply !text-disabled;
+      }
+    }
+
+    .ant-btn:not(:disabled) {
+      @apply border-primary bg-primary hover:bg-primary-50 active:bg-primary-70 text-white;
+    }
+  }
+}

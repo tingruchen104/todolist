@@ -1,0 +1,67 @@
+:is(.ant-picker-dropdown, .ant-picker-calendar) {
+  .ant-picker-panel-container {
+    @apply rounded shadow;
+  }
+
+  .ant-picker-cell .ant-picker-cell-inner,
+  .ant-picker-time-panel-cell .ant-picker-time-panel-cell-inner {
+    @apply transition-colors duration-300;
+  }
+
+  .ant-picker-cell-in-view.ant-picker-cell-today .ant-picker-cell-inner {
+    @apply !text-primary before:!border-primary;
+  }
+
+  .ant-picker-cell-in-view:hover .ant-picker-cell-inner,
+  .ant-picker-time-panel-cell:hover .ant-picker-time-panel-cell-inner {
+    @apply !bg-text-hover !text-primary;
+  }
+
+  .ant-picker-cell-in-view.ant-picker-cell-selected .ant-picker-cell-inner,
+  .ant-picker-cell-in-view.ant-picker-cell-range-start .ant-picker-cell-inner,
+  .ant-picker-cell-in-view.ant-picker-cell-range-end .ant-picker-cell-inner {
+    @apply !bg-primary !text-white;
+  }
+
+  .ant-picker-cell-in-view.ant-picker-cell-in-range::before,
+  .ant-picker-cell-in-view.ant-picker-cell-range-hover::before {
+    @apply !bg-primary-10;
+  }
+
+  .ant-picker-time-panel-cell-selected .ant-picker-time-panel-cell-inner {
+    @apply !bg-primary-10 !text-primary;
+  }
+
+  .ant-picker-now-btn {
+    @apply !text-primary;
+  }
+
+  .ant-picker-ok .ant-btn-primary:not(:disabled) {
+    @apply !border-primary !bg-primary hover:!border-primary-50 hover:!bg-primary-50;
+  }
+
+  .ant-picker-ok .ant-btn-primary:disabled,
+  .ant-picker-ok .ant-btn-primary.ant-btn-disabled {
+    @apply !border-base !bg-disabled !text-disabled !shadow-none;
+
+    .anticon,
+    [class^='jb_icon_'],
+    [class*=' jb_icon_'] {
+      @apply !text-disabled;
+    }
+  }
+}
+
+.ant-picker {
+  &[class*='-disabled'] {
+    @apply !bg-disabled;
+  }
+}
+.ant-picker-dropdown {
+  .ant-picker-today-btn {
+    @apply text-primary hover:text-primary-50 active:text-primary-70;
+  }
+  .ant-picker-cell-disabled {
+    @apply text-disabled before:rounded-r-sm first:before:!rounded-l-sm has-[+_.ant-picker-cell-disabled]:before:!rounded-none;
+  }
+}

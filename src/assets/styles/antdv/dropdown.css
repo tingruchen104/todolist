@@ -1,0 +1,44 @@
+.ant-dropdown-menu {
+  @apply rounded p-1 shadow;
+
+  .ant-dropdown-menu-item,
+  .ant-dropdown-menu-submenu-title {
+    @apply min-h-9 rounded-sm px-3 py-1.5 transition-colors duration-300;
+
+    .ant-dropdown-menu-title-content,
+    .ant-dropdown-menu-submenu-expand-icon {
+      @apply text-current;
+    }
+
+    .anticon,
+    [class^='jb_icon_'],
+    [class*=' jb_icon_'] {
+      @apply !text-current;
+    }
+  }
+
+  .ant-dropdown-menu-item-active,
+  .ant-dropdown-menu-submenu-title-active,
+  .ant-dropdown-menu-item:hover,
+  .ant-dropdown-menu-submenu-title:hover {
+    @apply !bg-text-hover !text-primary;
+  }
+
+  .ant-dropdown-menu-item-selected {
+    @apply !bg-primary-10 !text-primary;
+  }
+
+  .ant-dropdown-menu-item-danger {
+    @apply !text-error;
+
+    &.ant-dropdown-menu-item-active,
+    &:hover {
+      @apply !bg-error-10 !text-error;
+    }
+  }
+
+  .ant-dropdown-menu-item-disabled,
+  .ant-dropdown-menu-submenu-disabled {
+    @apply !text-disabled !bg-transparent;
+  }
+}

@@ -1,0 +1,31 @@
+.ant-card {
+  .ant-card-head,
+  .ant-card-actions {
+    @apply bg-background z-10;
+  }
+
+  .ant-card-head-title {
+    @apply text-lg;
+  }
+  .ant-card-body {
+    @apply py-4;
+  }
+
+  &.ant-card-small {
+    > .ant-card-head {
+      @apply min-h-11 px-3;
+    }
+
+    .ant-card-head-title {
+      @apply text-base;
+    }
+
+    > .ant-card-body {
+      @apply px-3 py-2;
+    }
+
+    .ant-card-actions > li {
+      @apply my-1.5;
+    }
+  }
+}

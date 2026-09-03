@@ -1,0 +1,24 @@
+.ant-segmented {
+  @apply !bg-white-95 !h-9;
+
+  .ant-segmented-item-label {
+    @apply px-4;
+  }
+
+  &.ant-segmented-lg {
+    @apply !h-10;
+    .ant-segmented-item {
+      @apply !h-9;
+    }
+  }
+
+  &.ant-segmented-sm {
+    @apply !h-7.5;
+    .ant-segmented-item {
+      @apply !h-6.5;
+      .ant-segmented-item-label {
+        @apply px-2;
+      }
+    }
+  }
+}

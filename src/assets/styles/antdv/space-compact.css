@@ -1,0 +1,23 @@
+.ant-space-compact {
+  .ant-btn-default:not(:disabled):not(:hover):not(:active):not(:focus-visible) {
+    @apply border-base text-label bg-white;
+  }
+
+  .ant-btn-default:not(:disabled):hover {
+    @apply border-primary-50 bg-primary-10 text-primary-50;
+  }
+
+  .ant-input:not(:disabled):not(:hover):not(:focus),
+  .ant-select:not(.ant-select-disabled):not(.ant-select-focused):not(.ant-select-open):not(:hover)
+    .ant-select-selector {
+    @apply border-base text-label;
+  }
+
+  .ant-select:not(.ant-select-disabled):not(.ant-select-focused):not(.ant-select-open):not(:hover) {
+    .ant-select-selection-item,
+    .ant-select-arrow,
+    .anticon {
+      @apply !text-label;
+    }
+  }
+}

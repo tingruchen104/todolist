@@ -1,0 +1,6 @@
+/* --------------------------------------------
+   compact select 的框線由 .ant-select-selector 負責，移除外層重複右框線
+--------------------------------------------- */
+.ant-input-group-compact > .ant-select {
+  @apply !border-e-0;
+}

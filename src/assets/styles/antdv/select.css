@@ -1,0 +1,365 @@
+.ant-select {
+  @apply min-w-16;
+
+  &.ant-select-sm {
+    @apply min-w-12;
+    .ant-select-arrow {
+      @apply end-[0.4375rem];
+    }
+  }
+
+  &.ant-select-show-arrow {
+    .ant-select-selection-item,
+    .ant-select-selection-placeholder {
+      @apply pe-5.5;
+    }
+  }
+
+  .ant-select-selection-search {
+    @apply !min-w-5.5;
+  }
+
+  .ant-select-selection-search-input {
+    @apply !pe-5.5;
+  }
+
+  &.ant-select-multiple {
+    .ant-select-selection-search {
+      @apply !ms-1.75;
+    }
+    .ant-select-selector {
+      @apply py-0.5 !pe-[2.0625rem] after:leading-1.5;
+      .ant-select-selection-search-input,
+      .ant-select-selection-search-mirror,
+      .ant-select-selection-search {
+        @apply h-7.5 !p-0;
+      }
+      .ant-select-selection-item {
+        @apply h-6;
+      }
+    }
+
+    &.ant-select-lg {
+      .ant-select-selector {
+        @apply py-1 after:leading-1.5;
+
+        .ant-select-selection-search-input,
+        .ant-select-selection-search-mirror,
+        .ant-select-selection-search {
+          @apply h-8 !p-0;
+        }
+        .ant-select-selection-item {
+          @apply h-7;
+        }
+      }
+    }
+  }
+
+  .ant-select-arrow {
+    @apply !text-quaternary pointer-events-none end-[0.6875rem] !top-1/2 !mt-0 inline-flex -translate-y-1/2 items-center justify-center transition duration-300;
+
+    .anticon {
+      @apply !text-quaternary;
+    }
+
+    .anticon-down {
+      @apply after:leading-none;
+    }
+  }
+
+  &.ant-select-open:not(.ant-select-show-search) {
+    .ant-select-arrow {
+      @apply -translate-y-1/2 rotate-180;
+    }
+  }
+
+  &:not(.ant-select-disabled):hover {
+    .ant-select-selector {
+      @apply border-primary-50;
+    }
+  }
+
+  &.ant-select-focused:not(.ant-select-disabled),
+  &.ant-select-open:not(.ant-select-disabled) {
+    .ant-select-selector {
+      @apply border-primary shadow;
+    }
+  }
+
+  .ant-select-selection-overflow {
+    @apply z-1;
+    .ant-select-selection-overflow-item {
+      .ant-select-selection-item {
+        @apply mr-1 flex items-center justify-start rounded-sm !px-2 text-sm;
+      }
+
+      .ant-select-selection-item-content {
+        @apply me-0;
+      }
+
+      .ant-select-selection-item-remove {
+        @apply ml-1 flex items-center justify-center align-baseline;
+        .anticon {
+          @apply size-3 after:!text-xs;
+        }
+      }
+
+      & + .ant-select-selection-overflow-item > .ant-select-selection-search {
+        @apply !ms-0;
+      }
+
+      &.tag-static {
+        .ant-select-selection-item-remove {
+          @apply !hidden;
+        }
+      }
+    }
+  }
+
+  &:not(.ant-select-disabled) {
+    .ant-select-selection-overflow {
+      .ant-select-selection-overflow-item {
+        .ant-select-selection-item {
+          @apply text-primary bg-primary-10 border-primary;
+        }
+
+        .ant-select-selection-item-remove {
+          .anticon {
+            @apply !text-primary-50 hover:!text-primary-40 active:!text-primary-60;
+          }
+        }
+      }
+    }
+  }
+
+  .ant-select-selector {
+    @apply flex items-center justify-center;
+  }
+
+  .ant-select-clear {
+    @apply m-0 size-5 -translate-y-1/2;
+  }
+
+  &[variant='primary']:not(.ant-select-disabled) {
+    .ant-select-selector {
+      @apply bg-primary border-primary hover:bg-primary-50 hover:border-primary-50;
+    }
+    .ant-select-selection-item,
+    .anticon {
+      @apply !text-white;
+    }
+
+    .ant-select-clear {
+      @apply bg-primary;
+    }
+
+    &[class*='-focused'] {
+      .ant-select-selector {
+        @apply border-primary-50 bg-primary-50;
+      }
+    }
+  }
+
+  &[variant='secondary']:not(.ant-select-disabled) {
+    .ant-select-selector {
+      @apply bg-primary-10 border-primary hover:bg-primary-10 hover:border-primary-50;
+    }
+    .ant-select-selection-item,
+    .anticon {
+      @apply !text-primary;
+    }
+
+    .ant-select-clear {
+      @apply bg-primary-50;
+    }
+
+    &[class*='-focused'] {
+      .ant-select-selector {
+        @apply border-primary-50 bg-primary-10;
+      }
+    }
+  }
+
+  &[variant='outline'] {
+    .ant-select-selector {
+      @apply !outline-primary-10 hover:!outline-primary-20 !border-transparent shadow !outline-2 -outline-offset-1;
+    }
+
+    &[class*='-focused'] {
+      .ant-select-selector {
+        @apply !outline-primary-20;
+      }
+    }
+
+    &[class*='-disabled'] {
+      .ant-select-selector {
+        @apply !outline-white-70;
+      }
+    }
+
+    &[class*='-status-error']:not([class*='-disabled']) {
+      .ant-select-selector {
+        @apply !outline-error-40;
+      }
+    }
+  }
+}
+.ant-select-dropdown {
+  @apply rounded shadow;
+
+  .ant-select-item {
+    @apply transition-colors duration-300;
+
+    .ant-select-item-option-state {
+      @apply !hidden;
+    }
+  }
+
+  .ant-select-item-option {
+    @apply min-h-9 p-0;
+    .ant-select-item-option-content {
+      @apply px-3 py-1.5;
+    }
+  }
+
+  .ant-checkbox-wrapper {
+    @apply mr-1;
+  }
+
+  .ant-select-item-option-active:not(.ant-select-item-option-disabled) {
+    @apply !bg-text-hover !text-primary;
+    .ant-checkbox-wrapper {
+      @apply text-primary;
+    }
+  }
+  .ant-select-item-option-selected:not(.ant-select-item-option-disabled) {
+    @apply !bg-primary-10 !text-primary !font-semibold;
+    .ant-checkbox-wrapper {
+      @apply text-primary;
+    }
+    .ant-select-item-option-content {
+      @apply text-primary font-semibold;
+    }
+  }
+}
+
+.ant-select-item-empty {
+  @apply !p-0;
+}
+
+.ant-tree-select-dropdown {
+  @apply rounded p-1 shadow;
+
+  .ant-select-tree {
+    @apply bg-transparent;
+  }
+
+  .ant-select-tree-list-holder-inner {
+    @apply gap-0.5;
+  }
+
+  .ant-select-tree-treenode {
+    @apply !min-h-9 w-full !items-center rounded-sm !p-0;
+  }
+
+  .ant-select-tree-indent-unit {
+    @apply w-4;
+  }
+
+  .ant-select-tree-switcher {
+    @apply text-quaternary !inline-flex !h-9 !w-6 flex-none !items-center !justify-center;
+  }
+
+  .ant-select-tree-switcher-icon {
+    @apply !m-0 !text-current;
+  }
+
+  .ant-select-tree-checkbox {
+    @apply !mt-0 mr-1 flex-none;
+  }
+
+  .ant-select-tree-node-content-wrapper {
+    @apply !flex !min-h-9 flex-1 !items-center rounded-sm !px-2 !py-0 !leading-9 transition-colors duration-300;
+  }
+
+  .ant-select-tree-title {
+    @apply leading-normal;
+  }
+
+  .ant-select-tree-treenode:hover {
+    .ant-select-tree-switcher {
+      @apply !text-quaternary;
+    }
+  }
+
+  .ant-select-tree-treenode:hover .ant-select-tree-node-content-wrapper {
+    @apply !bg-text-hover !text-primary;
+  }
+
+  .ant-select-tree-node-selected {
+    @apply !bg-primary-10 !text-primary font-semibold;
+  }
+
+  .ant-select-tree-treenode-selected {
+    .ant-select-tree-switcher {
+      @apply !text-quaternary;
+    }
+
+    .ant-select-tree-node-content-wrapper {
+      @apply !bg-primary-10 !text-primary;
+    }
+  }
+
+  .ant-select-tree-switcher-icon.anticon-caret-down {
+    @apply transition-transform duration-300 after:!text-xs;
+  }
+
+  .ant-select-tree-switcher_close {
+    .ant-select-tree-switcher-icon.anticon-caret-down {
+      @apply -rotate-90;
+    }
+  }
+
+  .ant-select-tree-switcher_open {
+    .ant-select-tree-switcher-icon.anticon-caret-down {
+      @apply rotate-0;
+    }
+  }
+}
+
+.ant-cascader-dropdown {
+  @apply rounded p-1 shadow;
+
+  .ant-cascader-menus {
+    @apply gap-1;
+  }
+
+  .ant-cascader-menu-item {
+    @apply text-label min-h-9 rounded-sm px-3 py-1.5 transition-colors duration-300;
+  }
+
+  .ant-cascader-menu-item-content {
+    @apply transition-colors duration-300;
+  }
+
+  .ant-cascader-menu-item-expand-icon {
+    @apply !text-current transition-colors duration-300;
+  }
+
+  .ant-cascader-menu-item:hover {
+    @apply !bg-text-hover !text-primary;
+  }
+
+  .ant-cascader-menu-item-active:not(.ant-cascader-menu-item-disabled) {
+    @apply !bg-primary-10 !text-primary font-semibold;
+  }
+
+  .ant-cascader-menu-item-expand:not(.ant-cascader-menu-item-disabled) {
+    @apply !bg-text-hover !text-primary;
+
+    .ant-cascader-menu-item-content,
+    .ant-cascader-menu-item-expand-icon {
+      @apply !text-primary;
+    }
+  }
+}

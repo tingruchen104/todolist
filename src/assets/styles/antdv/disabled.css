@@ -1,0 +1,5 @@
+[class*='ant-'][class*='-disabled'] {
+  * {
+    @apply !text-disabled placeholder:!text-disabled;
+  }
+}

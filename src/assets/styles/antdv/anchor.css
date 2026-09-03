@@ -1,0 +1,10 @@
+.ant-anchor {
+  .ant-anchor-link-active > .ant-anchor-link-title,
+  .ant-anchor-link-title-active {
+    @apply !text-primary;
+  }
+
+  .ant-anchor-ink-ball {
+    @apply !border-primary;
+  }
+}

@@ -1,0 +1,10 @@
+.ant-empty {
+  @apply my-4;
+
+  .ant-empty-image {
+    @apply h-20;
+  }
+  .ant-empty-description {
+    @apply !text-quaternary;
+  }
+}

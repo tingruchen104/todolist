@@ -1,0 +1,15 @@
+.ant-popover {
+  @apply text-label text-sm;
+
+  .ant-popover-inner {
+    @apply rounded-sm shadow;
+  }
+
+  .ant-popover-title {
+    @apply text-heading min-w-0 px-3 py-2 !text-base font-semibold;
+  }
+
+  .ant-popover-inner-content {
+    @apply px-3 py-2 text-sm;
+  }
+}

@@ -1,0 +1,107 @@
+.ant-tree {
+  .ant-tree-list-holder-inner {
+    @apply gap-0.5;
+  }
+
+  .ant-tree-treenode {
+    @apply !min-h-9 w-full !items-center rounded-sm !p-0;
+  }
+
+  .ant-tree-indent-unit {
+    @apply !w-6;
+  }
+
+  .ant-tree-switcher {
+    @apply text-quaternary !inline-flex !h-9 !w-6 flex-none !items-center !justify-center;
+
+    .ant-tree-switcher-line-icon {
+      &.anticon-file {
+        @apply after:bg-black-30 relative after:absolute after:inset-0 after:m-auto after:block after:size-1.5 after:rounded;
+        svg {
+          @apply !hidden;
+        }
+      }
+      &.anticon-plus-square,
+      &.anticon-minus-square {
+        @apply font-icon !text-[0.625rem] transition-transform duration-300 after:content-['\e966'];
+        svg {
+          @apply !hidden;
+        }
+      }
+
+      &.anticon-plus-square {
+        @apply -rotate-90;
+      }
+    }
+  }
+
+  .ant-tree-switcher-icon {
+    @apply !m-0 !text-current;
+  }
+
+  .ant-tree-checkbox {
+    @apply mx-1 !mt-0 flex-none;
+  }
+
+  .ant-tree-node-content-wrapper {
+    @apply !flex !min-h-9 flex-1 !items-center rounded-sm !px-2 !py-0 !leading-9 transition-colors duration-300;
+  }
+
+  .ant-tree-title {
+    @apply flex-1 leading-normal;
+  }
+
+  .ant-tree-treenode:hover {
+    .ant-tree-switcher {
+      @apply !text-quaternary;
+    }
+  }
+
+  .ant-tree-treenode:hover .ant-tree-node-content-wrapper {
+    @apply !bg-text-hover;
+  }
+
+  .ant-tree-node-selected {
+    @apply !bg-primary-10 !text-primary;
+  }
+
+  .ant-tree-treenode-selected {
+    .ant-tree-switcher {
+      @apply !text-quaternary;
+    }
+
+    .ant-tree-node-content-wrapper {
+      @apply !bg-primary-10 !text-primary;
+    }
+  }
+
+  .ant-tree-switcher-icon.anticon-caret-down {
+    @apply transition-transform duration-300 after:!text-xs;
+  }
+
+  .ant-tree-switcher_close {
+    .ant-tree-switcher-icon.anticon-caret-down {
+      @apply -rotate-90;
+    }
+  }
+
+  .ant-tree-switcher_open {
+    .ant-tree-switcher-icon.anticon-caret-down {
+      @apply rotate-0;
+    }
+  }
+
+  &.ant-tree-show-line {
+    .ant-tree-indent-unit {
+      @apply before:!left-3 before:-translate-x-px;
+    }
+  }
+
+  .ant-tree-switcher-leaf-line {
+    @apply before:!left-3 after:h-5;
+  }
+
+  .ant-tree-treenode-leaf-last .ant-tree-switcher-leaf-line {
+    @apply before:!h-5;
+  }
+}

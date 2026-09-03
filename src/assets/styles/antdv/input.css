@@ -1,0 +1,25 @@
+textarea.ant-input {
+  @apply !pr-7.75;
+}
+
+.ant-input-search {
+  .ant-input-search-button {
+    @apply !w-9 !min-w-9 !px-0;
+  }
+
+  .ant-input-search-button.ant-btn-primary {
+    .anticon,
+    [class^='jb_icon_'],
+    [class*=' jb_icon_'] {
+      @apply !text-white;
+    }
+  }
+}
+
+.ant-input-number .ant-input-number-handler-wrap {
+  @apply !hidden;
+}
+
+.ant-input-number-lg .ant-input-number-input {
+  @apply h-10.25 placeholder:text-base;
+}

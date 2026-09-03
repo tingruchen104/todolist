@@ -1,0 +1,80 @@
+.ant-alert {
+  @apply items-start;
+
+  &:not(.ant-alert-with-description) {
+    .ant-alert-icon {
+      @apply mt-0.5 !size-4.5;
+    }
+  }
+
+  &.ant-alert-banner {
+    @apply rounded;
+  }
+
+  &.ant-alert-with-description {
+    @apply !px-4 !py-3;
+
+    .ant-alert-icon {
+      @apply !size-6;
+    }
+
+    .ant-alert-message {
+      @apply text-heading text-base font-semibold;
+    }
+
+    .ant-alert-description {
+      @apply text-label;
+    }
+  }
+
+  .ant-alert-close-icon {
+    @apply !text-tertiary hover:!text-label inline-flex size-5 items-center justify-center rounded-sm transition-colors duration-300;
+
+    .anticon {
+      @apply !size-3 !text-xs !leading-none after:!text-xs;
+    }
+  }
+
+  &.ant-alert-success {
+    @apply border-success-30;
+    .ant-alert-icon {
+      @apply !text-success;
+    }
+  }
+
+  &.ant-alert-info {
+    @apply border-info-30;
+    .ant-alert-icon {
+      @apply !text-info;
+    }
+  }
+
+  &.ant-alert-warning {
+    @apply border-warning-30;
+    .ant-alert-icon {
+      @apply !text-warning;
+    }
+  }
+
+  &.ant-alert-error {
+    @apply border-error-30;
+    .ant-alert-icon {
+      @apply !text-error;
+    }
+  }
+
+  &.ant-alert-primary,
+  &.ant-alert-orange {
+    @apply !border-primary-30 !bg-primary-10;
+    .ant-alert-icon {
+      @apply !text-primary;
+    }
+  }
+
+  &.ant-alert-cyan {
+    @apply !border-cyan-30 !bg-cyan-10;
+    .ant-alert-icon {
+      @apply !text-cyan;
+    }
+  }
+}

@@ -1,0 +1,36 @@
+h1.ant-typography,
+h2.ant-typography {
+  @apply border-primary !text-primary m-0 inline-block border-b-2 !font-semibold;
+}
+
+h3.ant-typography,
+h4.ant-typography,
+h5.ant-typography,
+h6.ant-typography {
+  @apply !text-heading m-0 border-b-0 !font-semibold;
+}
+
+h1,
+h1.ant-typography {
+  @apply text-3xl;
+}
+h2,
+h2.ant-typography {
+  @apply text-2xl;
+}
+h3,
+h3.ant-typography {
+  @apply text-xl;
+}
+h4,
+h4.ant-typography {
+  @apply text-lg;
+}
+h5,
+h5.ant-typography {
+  @apply text-base;
+}
+h6,
+h6.ant-typography {
+  @apply text-sm;
+}

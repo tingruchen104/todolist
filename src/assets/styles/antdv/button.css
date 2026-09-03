@@ -1,0 +1,224 @@
+.ant-btn {
+  @apply inline-flex items-center justify-center gap-1.5 !font-semibold;
+
+  &.ant-btn-sm:not(.ant-btn-circle):not(.ant-btn-round):not([is-icon]):not([is-inline]) {
+    @apply !px-3;
+  }
+
+  .ant-btn-loading-icon {
+    @apply inline-flex items-center;
+
+    .anticon {
+      @apply !text-current;
+    }
+  }
+
+  .ant-wave.wave-motion-appear-active {
+    &:not([variant]):not(:disabled),
+    &[variant='primary']:not(:disabled) {
+      @apply shadow-[0_0_0_0.375rem_var(--color-primary)];
+    }
+
+    &[variant='success']:not(:disabled) {
+      @apply shadow-[0_0_0_0.375rem_var(--color-success)];
+    }
+
+    &[variant='error']:not(:disabled),
+    &.ant-btn-dangerous:not(:disabled) {
+      @apply shadow-[0_0_0_0.375rem_var(--color-error)];
+    }
+
+    &[variant='warning']:not(:disabled) {
+      @apply shadow-[0_0_0_0.375rem_var(--color-warning)];
+    }
+
+    &[variant='info']:not(:disabled) {
+      @apply shadow-[0_0_0_0.375rem_var(--color-info)];
+    }
+
+    &[variant='cyan']:not(:disabled) {
+      @apply shadow-[0_0_0_0.375rem_var(--color-cyan)];
+    }
+  }
+
+  &.ant-btn-primary {
+    @apply border-none text-white;
+
+    &:not([variant]):not(:disabled),
+    &[variant='primary']:not(:disabled) {
+      @apply bg-primary hover:bg-primary-50 active:bg-primary-70;
+    }
+
+    &[variant='success']:not(:disabled) {
+      @apply bg-success hover:bg-success-50 active:bg-success-70;
+    }
+
+    &[variant='error']:not(:disabled),
+    &.ant-btn-dangerous:not(:disabled) {
+      @apply bg-error hover:bg-error-50 active:bg-error-70;
+    }
+
+    &[variant='warning']:not(:disabled) {
+      @apply bg-warning hover:bg-warning-50 active:bg-warning-70;
+    }
+
+    &[variant='info']:not(:disabled) {
+      @apply bg-info hover:bg-info-50 active:bg-info-70;
+    }
+
+    &[variant='cyan']:not(:disabled) {
+      @apply bg-cyan active:bg-cyan-70 hover:bg-cyan-50;
+    }
+
+    &:disabled {
+      @apply bg-disabled text-disabled border-base border-solid;
+    }
+  }
+
+  &.ant-btn-default,
+  &.ant-btn-dashed {
+    &:not([variant]):not(:disabled) {
+      @apply text-primary border-primary hover:text-primary-50 hover:border-primary-50 active:text-primary-70 active:border-primary-70 bg-white;
+    }
+    &[variant='primary']:not(:disabled) {
+      @apply text-primary border-primary bg-primary-10 hover:text-primary-50 hover:border-primary-50 active:text-primary-70 active:border-primary-70;
+    }
+
+    &[variant='success']:not(:disabled) {
+      @apply text-success border-success bg-success-10 hover:text-success-50 hover:border-success-50 active:text-success-70 active:border-success-70;
+    }
+
+    &[variant='error']:not(:disabled),
+    &.ant-btn-dangerous:not(:disabled) {
+      @apply text-error border-error bg-error-10 hover:text-error-50 hover:border-error-50 active:text-error-70 active:border-error-70;
+    }
+
+    &[variant='warning']:not(:disabled) {
+      @apply text-warning border-warning bg-warning-10 hover:text-warning-50 hover:border-warning-50 active:text-warning-70 active:border-warning-70;
+    }
+
+    &[variant='info']:not(:disabled) {
+      @apply text-info border-info bg-info-10 hover:text-info-50 hover:border-info-50 active:text-info-70 active:border-info-70;
+    }
+
+    &[variant='cyan']:not(:disabled) {
+      @apply text-cyan border-cyan bg-cyan-10 active:text-cyan-70 active:border-cyan-70 hover:border-cyan-50 hover:text-cyan-50;
+    }
+
+    &:disabled {
+      @apply bg-disabled text-disabled border-base border-solid;
+    }
+  }
+
+  &.ant-btn-text,
+  &.ant-btn-link {
+    @apply !bg-transparent;
+
+    &:not([variant]):not(:disabled) {
+      @apply text-quaternary hover:text-label active:text-tertiary;
+    }
+
+    &[variant='primary']:not(:disabled) {
+      @apply text-primary hover:text-primary-50 active:text-primary-70;
+    }
+
+    &[variant='success']:not(:disabled) {
+      @apply text-success hover:text-success-50 active:text-success-70;
+    }
+
+    &[variant='error']:not(:disabled),
+    &.ant-btn-dangerous:not(:disabled) {
+      @apply text-error hover:text-error-50 active:text-error-70;
+    }
+
+    &[variant='warning']:not(:disabled) {
+      @apply text-warning hover:text-warning-50 active:text-warning-70;
+    }
+
+    &[variant='info']:not(:disabled) {
+      @apply text-info hover:text-info-50 active:text-info-70;
+    }
+
+    &[variant='cyan']:not(:disabled) {
+      @apply text-cyan active:text-cyan-70 hover:text-cyan-50;
+    }
+
+    &:disabled {
+      @apply text-disabled;
+    }
+
+    &.ant-btn-background-ghost {
+      @apply !border-transparent;
+    }
+
+    .ant-wave {
+      @apply !shadow-none;
+    }
+  }
+
+  &[is-icon] {
+    @apply size-5 border-0 !bg-transparent p-0 text-base font-semibold !shadow-none;
+
+    &.ant-btn-sm {
+      @apply size-4 !text-xs;
+    }
+    &.ant-btn-lg {
+      @apply size-6 !text-lg;
+    }
+
+    &:not([variant]):not(:disabled) {
+      @apply text-black-40 hover:text-black-30 active:text-black-50;
+    }
+
+    &[variant='primary']:not(:disabled) {
+      @apply text-primary-50 hover:text-primary-40 active:text-primary-60;
+    }
+
+    &[variant='success']:not(:disabled) {
+      @apply text-success-50 hover:text-success-40 active:text-success-60;
+    }
+
+    &[variant='error']:not(:disabled),
+    &.ant-btn-dangerous:not(:disabled) {
+      @apply text-error-50 hover:text-error-40 active:text-error-60;
+    }
+
+    &[variant='warning']:not(:disabled) {
+      @apply text-warning-50 hover:text-warning-40 active:text-warning-60;
+    }
+    &[variant='info']:not(:disabled) {
+      @apply text-info-50 hover:text-info-40 active:text-info-60;
+    }
+
+    &[variant='cyan']:not(:disabled) {
+      @apply hover:text-cyan-40 active:text-cyan-60 text-cyan-50;
+    }
+
+    &:disabled {
+      @apply text-disabled;
+    }
+
+    .ant-wave {
+      @apply !shadow-none;
+    }
+  }
+
+  &[is-inline] {
+    @apply !h-5 !p-0 !text-sm !font-medium;
+
+    &.ant-btn-sm {
+      @apply !h-5.5 !text-xs;
+    }
+    &.ant-btn-lg {
+      @apply !h-6 !text-base;
+    }
+  }
+
+  &.ant-btn-background-ghost {
+    @apply border-white bg-transparent text-white;
+  }
+
+  &.ant-btn-round {
+    @apply !ps-2 !pe-2;
+  }
+}

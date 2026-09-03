@@ -1,0 +1,5 @@
+.ant-result {
+  .ant-result-icon > .anticon {
+    @apply !size-auto;
+  }
+}

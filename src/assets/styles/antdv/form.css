@@ -1,0 +1,143 @@
+.ant-form {
+  /* --------------------------------------------
+     標籤與欄位的間距
+     - 水平排列時標籤與欄位同列，需留右側間距與最小高度才對得上控件
+     - 垂直排列時標籤自成一列，改留下方間距，高度交給內容
+     - 兩種排列的間距差異大，因此依 layout 分開，各自再分 large / small
+  --------------------------------------------- */
+  &:not(.ant-form-vertical) {
+    &.ant-form-large {
+      .ant-form-item .ant-form-item-label > label {
+        @apply mr-5 min-h-10;
+      }
+    }
+    &.ant-form-small {
+      .ant-form-item .ant-form-item-label > label {
+        @apply mr-2.5 min-h-7.5;
+      }
+    }
+  }
+
+  &.ant-form-vertical {
+    .ant-form-item {
+      @apply mb-4;
+      .ant-form-item-label {
+        @apply pb-0.5;
+        & > label {
+          @apply mr-0 !h-auto !min-h-auto;
+        }
+      }
+    }
+    &.ant-form-large {
+      .ant-form-item {
+        @apply mb-6;
+        .ant-form-item-label {
+          @apply pb-1;
+        }
+      }
+    }
+    &.ant-form-small {
+      .ant-form-item {
+        @apply mb-2;
+        .ant-form-item-label {
+          @apply pb-0.5;
+        }
+      }
+    }
+  }
+
+  &.ant-form-large {
+    .ant-form-item .ant-form-item-label > label {
+      @apply text-xl;
+    }
+    .ant-checkbox-wrapper,
+    .ant-radio-wrapper {
+      @apply !text-base;
+      .ant-checkbox-inner {
+        @apply size-5 after:start-[20.5%];
+      }
+
+      input[type='checkbox'] {
+        @apply size-5;
+      }
+
+      .ant-checkbox {
+        @apply translate-y-1;
+      }
+
+      .ant-radio-inner,
+      input[type='radio'] {
+        @apply size-5 after:size-5;
+      }
+
+      .ant-radio {
+        @apply translate-y-1;
+      }
+    }
+  }
+  &.ant-form-small {
+    .ant-form-item .ant-form-item-label > label {
+      @apply text-sm;
+    }
+    .ant-checkbox-wrapper,
+    .ant-radio-wrapper {
+      @apply !text-sm;
+
+      .ant-checkbox-inner {
+        @apply size-4 after:start-[16.5%];
+      }
+
+      input[type='checkbox'] {
+        @apply size-4;
+      }
+
+      .ant-checkbox {
+        @apply translate-y-[12.5%];
+      }
+
+      .ant-radio-inner,
+      input[type='radio'] {
+        @apply size-4 after:size-4;
+      }
+      .ant-radio {
+        @apply translate-y-[12.5%];
+      }
+    }
+    .ant-form-item {
+      .ant-form-item-explain,
+      .ant-form-item-extra {
+        @apply text-xs;
+      }
+    }
+  }
+}
+
+.ant-form-item {
+  @apply mb-2;
+
+  .ant-form-item-label {
+    @apply text-start;
+
+    > label {
+      @apply text-label mr-4 h-auto min-h-9 text-base;
+      @apply before:text-error before:absolute before:top-0 before:right-0 before:!m-0 before:translate-x-[125%];
+      @apply after:content-none;
+    }
+  }
+  .ant-checkbox-wrapper,
+  .ant-radio-wrapper {
+    @apply !text-sm;
+  }
+
+  .ant-form-item-explain-error {
+    @apply text-error mt-1 mb-2;
+  }
+
+  .ant-form-item-control-input {
+    @apply min-h-7.5;
+  }
+
+  .ant-form-item-explain > div {
+    @apply mt-1;
+  }
+}

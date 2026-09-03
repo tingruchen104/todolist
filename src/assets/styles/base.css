@@ -1,0 +1,111 @@
+:root {
+  --color-primary: var(--color-primary-60);
+  --color-primary-10: #fff1e5; /* color-1 最淺 */
+  --color-primary-20: #ffe1cc; /* color-2 */
+  --color-primary-30: #ffc199; /* color-3 */
+  --color-primary-40: #ffa366; /* color-4 */
+  --color-primary-50: #ff8f33; /* color-5 */
+  --color-primary-60: #ff7800; /* color-6 基準 */
+  --color-primary-70: #cc6000; /* color-7 */
+  --color-primary-80: #994800; /* color-8 */
+  --color-primary-90: #663000; /* color-9 */
+  --color-primary-100: #331800; /* color-10 最深 */
+
+  --color-success: var(--color-success-60);
+  --color-success-10: #f6ffed; /* color-1 最淺 */
+  --color-success-20: #d9f7be; /* color-2 */
+  --color-success-30: #b7eb8f; /* color-3 */
+  --color-success-40: #95de64; /* color-4 */
+  --color-success-50: #73d13d; /* color-5 */
+  --color-success-60: #52c41a; /* color-6 基準 */
+  --color-success-70: #389e0d; /* color-7 */
+  --color-success-80: #237804; /* color-8 */
+  --color-success-90: #135200; /* color-9 */
+  --color-success-100: #092b00; /* color-10 最深 */
+
+  --color-error: var(--color-error-60);
+  --color-error-10: #fff1f0; /* color-1 最淺 */
+  --color-error-20: #ffccc7; /* color-2 */
+  --color-error-30: #ffa39e; /* color-3 */
+  --color-error-40: #ff7875; /* color-4 */
+  --color-error-50: #ff4d4f; /* color-5 */
+  --color-error-60: #f5222d; /* color-6 基準 */
+  --color-error-70: #cf1322; /* color-7 */
+  --color-error-80: #a8071a; /* color-8 */
+  --color-error-90: #820014; /* color-9 */
+  --color-error-100: #5c0011; /* color-10 最深 */
+
+  --color-warning: var(--color-warning-60);
+  --color-warning-10: #fffbe6; /* gold-1 最淺 */
+  --color-warning-20: #fff1b8; /* gold-2 */
+  --color-warning-30: #ffe58f; /* gold-3 */
+  --color-warning-40: #ffd666; /* gold-4 */
+  --color-warning-50: #ffc53d; /* gold-5 */
+  --color-warning-60: #faad14; /* gold-6 基準 */
+  --color-warning-70: #d48806; /* gold-7 */
+  --color-warning-80: #ad6800; /* gold-8 */
+  --color-warning-90: #874d00; /* gold-9 */
+  --color-warning-100: #613400; /* gold-10 最深 */
+
+  --color-info: var(--color-info-60);
+  --color-info-10: #e6f4ff; /* color-1 最淺 */
+  --color-info-20: #bae0ff; /* color-2 */
+  --color-info-30: #91caff; /* color-3 */
+  --color-info-40: #69b1ff; /* color-4 */
+  --color-info-50: #4096ff; /* color-5 */
+  --color-info-60: #1677ff; /* color-6 基準 */
+  --color-info-70: #0958d9; /* color-7 */
+  --color-info-80: #003eb3; /* color-8 */
+  --color-info-90: #002c8c; /* color-9 */
+  --color-info-100: #001d66; /* color-10 最深 */
+
+  --color-cyan: var(--color-cyan-60);
+  --color-cyan-10: #dff7f4; /* color-1 最淺 */
+  --color-cyan-20: #96ebe4; /* color-2 */
+  --color-cyan-30: #6aded8; /* color-3 */
+  --color-cyan-40: #43d1cf; /* color-4 */
+  --color-cyan-50: #1fc2c4; /* color-5 */
+  --color-cyan-60: #00afb8; /* color-6 基準 */
+  --color-cyan-70: #008591; /* color-7 */
+  --color-cyan-80: #005f6b; /* color-8 */
+  --color-cyan-90: #003b45; /* color-9 */
+  --color-cyan-100: #00191f; /* color-10 最深 */
+
+  --color-white: var(--color-white-100);
+  --color-white-100: #ffffff;
+  --color-white-95: #fafbfc;
+  --color-white-90: #f4f6f9;
+  --color-white-80: #f2f4f6;
+  --color-white-70: #eceff2;
+  --color-white-60: #d9dde2;
+  --color-white-50: #e1e4e8;
+  --color-white-40: #e7eaed;
+  --color-white-30: #f0f2f4;
+  --color-white-20: #f5f7f9;
+  --color-white-10: #fafbfc;
+
+  --color-black: var(--color-black-100);
+  --color-black-10: #c3c9d0;
+  --color-black-20: #b3bac2;
+  --color-black-30: #a3acb5;
+  --color-black-40: #949da7;
+  --color-black-50: #858f99;
+  --color-black-60: #5f6d7e;
+  --color-black-70: #536170;
+  --color-black-80: #475462;
+  --color-black-90: #3a4753;
+  --color-black-100: #2f3844;
+
+  --color-opacity: color-mix(in oklch, var(--color-black-100) 8%, transparent);
+  --color-opacity-30: color-mix(in oklch, var(--color-black-100) 30%, transparent);
+  --color-opacity-50: color-mix(in oklch, var(--color-black-100) 50%, transparent);
+  --color-opacity-70: color-mix(in oklch, var(--color-black-100) 70%, transparent);
+  --color-opacity-90: color-mix(in oklch, var(--color-black-100) 90%, transparent);
+
+  --font-sans: 'Inter', 'Noto Sans TC', sans-serif;
+  --font-icon: '104_icon';
+
+  --shadow: 0 1px 0.125rem 0 var(--color-opacity);
+
+  --blur-2xs: 0.125rem;
+}

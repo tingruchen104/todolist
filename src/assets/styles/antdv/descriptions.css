@@ -1,0 +1,9 @@
+.ant-descriptions {
+  .ant-descriptions-item-label {
+    @apply !bg-white-80;
+  }
+
+  .ant-descriptions-item-content {
+    @apply bg-background;
+  }
+}

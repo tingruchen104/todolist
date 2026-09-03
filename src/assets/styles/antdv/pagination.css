@@ -1,0 +1,86 @@
+.ant-pagination {
+  &.ant-pagination-mini {
+    @apply inline-flex items-center gap-2;
+
+    .ant-pagination-item,
+    .ant-pagination-prev,
+    .ant-pagination-next {
+      @apply !h-6 !min-w-6;
+    }
+
+    .ant-pagination-item a,
+    .ant-pagination-item-ellipsis {
+      @apply text-xs !leading-[1.5rem];
+    }
+
+    .ant-pagination-total-text {
+      @apply text-xs;
+    }
+  }
+
+  /* 頁碼與翻頁鈕使用較精簡的表格底部尺寸 */
+  .ant-pagination-item,
+  .ant-pagination-prev,
+  .ant-pagination-next {
+    @apply inline-flex !h-7 !min-w-7 items-center justify-center;
+  }
+
+  .ant-pagination-item a,
+  .ant-pagination-item-ellipsis {
+    @apply text-sm !leading-[1.75rem];
+  }
+
+  .ant-pagination-total-text {
+    @apply text-label mr-0 inline-flex items-center text-sm;
+  }
+
+  /* 未選中的頁碼不畫底色與框線，滑過才有底色 */
+  .ant-pagination-item:not(.ant-pagination-item-active) {
+    @apply !border-transparent !bg-transparent;
+
+    &:hover {
+      @apply !border-transparent !bg-white-90;
+
+      a {
+        @apply !text-primary;
+      }
+    }
+  }
+
+  .ant-pagination-item-active a {
+    @apply !text-primary;
+  }
+
+  .ant-pagination-item-active:hover {
+    @apply !border-primary;
+
+    a {
+      @apply !text-primary;
+    }
+  }
+
+  .ant-pagination-prev,
+  .ant-pagination-next {
+    .ant-pagination-item-link {
+      @apply inline-flex items-center justify-center !border-0 !bg-transparent;
+
+      .anticon {
+        @apply !text-quaternary !m-0;
+      }
+    }
+
+    &.ant-pagination-disabled .anticon {
+      @apply !text-disabled;
+    }
+
+    &:not(.ant-pagination-disabled):hover {
+      .ant-pagination-item-link {
+        @apply text-primary;
+
+        .anticon {
+          @apply !text-primary;
+        }
+      }
+    }
+  }
+}

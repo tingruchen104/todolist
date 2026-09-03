@@ -1,0 +1,52 @@
+.ant-collapse {
+  @apply border-base overflow-hidden rounded bg-white;
+
+  .ant-collapse-item {
+    @apply border-base overflow-hidden rounded-none transition-colors duration-300;
+  }
+
+  .ant-collapse-item:last-child,
+  .ant-collapse-item:last-child > .ant-collapse-header,
+  .ant-collapse-item:last-child > .ant-collapse-content {
+    @apply !rounded-none;
+  }
+
+  .ant-collapse-header {
+    @apply text-heading min-h-11 rounded-none bg-white px-4 py-2.5 transition-colors duration-300;
+
+    &:hover {
+      @apply !bg-text-hover !text-primary;
+
+      .ant-collapse-arrow {
+        @apply !text-primary;
+      }
+    }
+  }
+
+  .ant-collapse-header-text {
+    @apply transition-colors duration-300;
+  }
+
+  .ant-collapse-expand-icon,
+  .ant-collapse-arrow {
+    @apply !text-quaternary inline-flex items-center justify-center;
+  }
+
+  .ant-collapse-item-active {
+    > .ant-collapse-header {
+      @apply !bg-primary-10 !text-primary rounded-none font-semibold shadow-[inset_0.1875rem_0_0_var(--color-primary)];
+
+      .ant-collapse-arrow {
+        @apply !text-primary rotate-90;
+      }
+    }
+  }
+
+  .ant-collapse-content {
+    @apply border-base rounded-none bg-white;
+  }
+
+  .ant-collapse-content-box {
+    @apply text-label rounded-none px-4 py-3;
+  }
+}

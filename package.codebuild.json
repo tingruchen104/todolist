@@ -1,0 +1,15 @@
+{
+  "name": "104-f2e-c-backstage",
+  "private": true,
+  "version": "0.0.1",
+  "type": "module",
+  "scripts": {
+    "serve": "vite --mode development",
+    "build": "vite build --mode development",
+    "preview": "preview=1 vite preview"
+  },
+  "dependencies": {
+    "104-f2e-teams-workflow": "git+ssh://git@github.com/104corp/104-f2e-teams-workflow.git#v2.0.4"
+  },
+  "devDependencies": {}
+}

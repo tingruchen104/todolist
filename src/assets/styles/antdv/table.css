@@ -1,0 +1,16 @@
+.ant-table {
+  .ant-table-column-sorter .anticon,
+  .ant-table-filter-trigger .anticon {
+    @apply !size-4 !text-xs after:!text-xs;
+  }
+}
+.ant-table-wrapper {
+  .ant-table-thead > tr > th,
+  .ant-table-thead > tr > td {
+    @apply !bg-white-95;
+  }
+  .ant-table-tbody > tr.ant-table-row:hover > td,
+  .ant-table-tbody > tr > td.ant-table-cell-row-hover {
+    @apply !bg-white-95;
+  }
+}

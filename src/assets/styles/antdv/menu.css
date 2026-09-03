@@ -1,0 +1,24 @@
+.ant-menu-inline {
+  @apply border-e-0;
+
+  .ant-menu-sub {
+    @apply !shadow-[inset_0_0.125rem_0.125rem_-0.125rem_var(--color-opacity),inset_0_-0.125rem_0.125rem_-0.125rem_var(--color-opacity)];
+  }
+
+  .ant-menu-item,
+  .ant-menu-submenu-title {
+    @apply text-label hover:!bg-white-90 hover:!text-primary active:!bg-white-70 active:!text-primary-70 font-medium transition-colors duration-300;
+  }
+
+  .ant-menu-item::after {
+    @apply hidden;
+  }
+
+  .ant-menu-item-selected {
+    @apply !bg-primary-10 !text-primary hover:!bg-primary-10 hover:!text-primary active:!bg-primary-10 active:!text-primary !font-semibold;
+  }
+
+  .ant-menu-submenu-selected > .ant-menu-submenu-title {
+    @apply !text-primary;
+  }
+}

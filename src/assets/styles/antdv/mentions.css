@@ -1,0 +1,16 @@
+.ant-mentions-dropdown {
+  @apply rounded p-1 shadow;
+
+  .ant-mentions-dropdown-menu-item {
+    @apply min-h-9 rounded-sm px-3 py-1.5 transition-colors duration-300;
+  }
+
+  .ant-mentions-dropdown-menu-item-active,
+  .ant-mentions-dropdown-menu-item:hover {
+    @apply !bg-text-hover !text-primary;
+  }
+
+  .ant-mentions-dropdown-menu-item-disabled {
+    @apply !text-disabled !bg-transparent;
+  }
+}

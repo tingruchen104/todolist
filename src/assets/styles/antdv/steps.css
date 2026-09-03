@@ -1,0 +1,35 @@
+.ant-steps {
+  .ant-steps-item-icon {
+    @apply inline-flex items-center justify-center;
+  }
+
+  .ant-steps-icon {
+    @apply flex items-center justify-center leading-none;
+  }
+
+  .ant-steps-item-process {
+    .ant-steps-item-icon {
+      @apply !border-primary !bg-primary;
+    }
+
+    .ant-steps-icon,
+    .anticon {
+      @apply !text-white;
+    }
+  }
+
+  .ant-steps-item-finish {
+    .ant-steps-item-icon {
+      @apply !border-primary;
+    }
+
+    .ant-steps-icon,
+    .anticon {
+      @apply !text-primary;
+    }
+
+    .ant-steps-item-tail::after {
+      @apply !bg-primary-30;
+    }
+  }
+}

@@ -1,0 +1,25 @@
+.ant-tour {
+  @apply text-label text-sm;
+
+  .ant-tour-title {
+    @apply text-heading !text-base font-semibold;
+  }
+
+  .ant-tour-content {
+    @apply rounded-sm shadow;
+  }
+
+  .ant-tour-inner {
+    @apply rounded-sm;
+  }
+  .ant-tour-header {
+    @apply !pb-3;
+  }
+  .ant-tour-footer {
+    @apply !pt-3;
+  }
+
+  .ant-tour-close {
+    @apply z-1;
+  }
+}

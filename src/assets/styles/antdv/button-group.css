@@ -1,0 +1,17 @@
+.ant-btn-group {
+  > .ant-btn-primary:not(:first-child) {
+    @apply border-0 border-l border-solid !border-white/60;
+  }
+
+  > .ant-btn-primary:not(:last-child) {
+    @apply border-0 border-r border-solid !border-white/60;
+  }
+
+  > .ant-btn-default:not(:first-child) {
+    @apply border-l border-solid;
+  }
+
+  > .ant-btn-default:not(:last-child) {
+    @apply border-r border-solid;
+  }
+}

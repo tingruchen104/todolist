@@ -1,0 +1,9 @@
+.ant-input-number,
+.ant-input-affix-wrapper,
+.ant-picker,
+.ant-select-selector,
+.ant-checkbox-inner,
+.ant-radio-inner,
+.ant-btn:not(.ant-btn-text):not(.ant-btn-link) {
+  @apply shadow;
+}

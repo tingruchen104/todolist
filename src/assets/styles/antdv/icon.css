@@ -1,0 +1,122 @@
+.anticon {
+  @apply !inline-flex size-5 items-center justify-center align-baseline text-sm leading-1 font-normal text-current transition duration-150;
+
+  &.anticon-down {
+    @apply font-icon after:content-['\e966'];
+    svg {
+      @apply !hidden;
+    }
+  }
+  &.anticon-up {
+    @apply font-icon rotate-180 after:content-['\e966'];
+    svg {
+      @apply !hidden;
+    }
+  }
+  &.anticon-left {
+    @apply font-icon after:content-['\e936'];
+    svg {
+      @apply !hidden;
+    }
+  }
+  &.anticon-right {
+    @apply font-icon after:content-['\e917'];
+    svg {
+      @apply !hidden;
+    }
+  }
+  &.anticon-double-left {
+    @apply font-icon after:indent-[-0.35em] after:tracking-[-0.35em] after:content-['\e936\e936'];
+    svg {
+      @apply !hidden;
+    }
+  }
+  &.anticon-double-right {
+    @apply font-icon after:indent-[-0.35em] after:tracking-[-0.35em] after:content-['\e917\e917'];
+    svg {
+      @apply !hidden;
+    }
+  }
+  &.anticon-caret-down {
+    @apply font-icon after:content-['\e966'];
+    svg {
+      @apply !hidden;
+    }
+  }
+  &.anticon-caret-up {
+    @apply font-icon after:content-['\e905'];
+    svg {
+      @apply !hidden;
+    }
+  }
+  &.anticon-filter {
+    @apply font-icon after:content-['\e959'];
+    svg {
+      @apply !hidden;
+    }
+  }
+  &.anticon-search {
+    @apply font-icon after:content-['\e98b'];
+    svg {
+      @apply !hidden;
+    }
+  }
+  &.anticon-calendar {
+    @apply font-icon after:content-['\e978'];
+    svg {
+      @apply !hidden;
+    }
+  }
+  &.anticon-close-circle {
+    @apply font-icon after:content-['\e968'];
+    svg {
+      @apply !hidden;
+    }
+  }
+  &.anticon-close {
+    @apply font-icon text-lg after:content-['\e968'];
+    svg {
+      @apply !hidden;
+    }
+  }
+  &.anticon-paper-clip {
+    @apply font-icon after:content-['\e980'];
+    svg {
+      @apply !hidden;
+    }
+  }
+  &.anticon-delete {
+    @apply font-icon font-normal after:content-['\e972'];
+    svg {
+      @apply !hidden;
+    }
+  }
+  &.anticon-loading {
+    @apply after:content-none;
+    svg {
+      @apply !block;
+    }
+  }
+}
+
+.feedback-icon {
+  @apply block flex-none;
+
+  &.icon-success {
+    @apply text-success;
+  }
+  &.icon-error {
+    @apply text-error;
+  }
+  &.icon-info {
+    @apply text-info;
+  }
+  &.icon-warning {
+    @apply text-warning;
+  }
+}
+
+[class^='jb_icon_'],
+[class*=' jb_icon_'] {
+  @apply inline-flex items-center justify-center text-current;
+}

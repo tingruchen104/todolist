@@ -1,0 +1,49 @@
+.ant-modal {
+  .ant-modal-title {
+    @apply !text-heading !text-lg;
+  }
+
+  &:not(.ant-modal-confirm) {
+    .ant-modal-header {
+      @apply px-6 pt-3.5 pb-2;
+    }
+    .ant-modal-body {
+      @apply text-label px-6 pt-4 pb-2;
+    }
+
+    .ant-modal-footer {
+      @apply border-none px-6 pt-2 pb-3.5;
+    }
+    .ant-modal-close,
+    .ant-modal-close-x {
+      @apply size-5;
+    }
+  }
+}
+.ant-modal-confirm {
+  .ant-modal-body {
+    @apply px-6 py-3.5;
+  }
+  .ant-modal-confirm-body {
+    .feedback-icon {
+      @apply mr-2 !size-6 !leading-none;
+    }
+    .ant-modal-confirm-title {
+      @apply text-heading flex-1 text-xl;
+    }
+    .ant-modal-confirm-content {
+      @apply text-label !mt-2 !max-w-none;
+    }
+  }
+  .ant-modal-confirm-btns {
+    @apply mt-4;
+  }
+  &.no-confirm-icon {
+    .ant-modal-confirm-body {
+      @apply block;
+      .icon-confirm {
+        @apply !hidden;
+      }
+    }
+  }
+}

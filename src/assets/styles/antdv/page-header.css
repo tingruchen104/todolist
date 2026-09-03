@@ -1,0 +1,23 @@
+.ant-page-header {
+  @apply mb-5 p-0;
+}
+
+.ant-page-header-heading-title {
+  @apply border-primary !text-primary m-0 inline-block border-b-2 text-2xl !font-semibold;
+}
+
+.ant-page-header-heading-left {
+  @apply !m-0;
+}
+
+.ant-page-header-heading-extra {
+  @apply !m-0 flex !items-center;
+}
+
+.ant-page-header-content {
+  @apply text-tertiary mb-1.5 !pt-2 text-sm;
+}
+
+.ant-page-header-heading-tags {
+  @apply flex items-center;
+}

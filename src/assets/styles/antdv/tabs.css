@@ -1,0 +1,28 @@
+.ant-tabs {
+  .ant-tabs-tab {
+    @apply px-3 py-2;
+  }
+
+  .ant-tabs-tab-btn {
+    @apply text-sm leading-5;
+  }
+
+  .ant-tabs-tab-remove {
+    @apply text-quaternary hover:text-label !mr-0 !ml-1 inline-flex size-3 items-center justify-center p-0 transition-colors duration-300;
+
+    .anticon {
+      @apply !size-3 !text-xs !leading-none after:!text-xs;
+    }
+  }
+
+  &.ant-tabs-card,
+  &.ant-tabs-editable-card {
+    .ant-tabs-tab {
+      @apply !px-3 !py-1.5;
+    }
+
+    .ant-tabs-tab-with-remove {
+      @apply !pe-2;
+    }
+  }
+}
